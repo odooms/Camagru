@@ -1,4 +1,10 @@
 <?php
+$uname = $_get["uname"];
+$email = $_get["email"];
+if ($_get["pwd1"] == $_get["pwd2"])
+{
+    $pwd = $_get["pwd1"];
+}
 //$SERVER = 'localhost';
 //$username = 'root';
 //$password = 'changeme';
