@@ -1,19 +1,18 @@
 <?php
-//local server information
-$server = "localhost";
-$username = "root";
-$password = "changeme";
-$db = "camagru";
+$DBserver = "localhost";
+$DBuser = "root";
+$DBpass = "changeme";
+$DBname = "camagru";
 
 try{
-    $handle = new PDO("mysql:host=$server;dbname=$db", "$username", "$password");
-    $handle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO users_table (user_email, user_username, user_password) 
-    VALUES ($email, $uname, $pwd, )";
-    $conn->exec($sql);
-    echo "ok";
-}catch(PDOException $e){
-    die("oops");
+    $conn = new PDO("mysql:host= {$DBserver};dbname= {$DBname}", $DBuser, $DBpass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  //  $sql = "INSERT INTO users_table (user_email, user_username, user_password) 
+   // VALUES ($email, $uname, $pwd, )";
+    echo("ok");
+}catch(PDOException $ex){
+    die($ex->getMessage());
 }
-$conn = NULL;
+$conn = NULL; 
 ?>
