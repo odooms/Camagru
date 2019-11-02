@@ -1,0 +1,72 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /*background: darksalmon;*/
+}
+.wrap{
+    max-width: 350px;
+    border-radius: 20px;
+    margin:auto;
+    background: rgba(0,0,0,0,.8);
+    box-sizing: border-box;
+    padding: 40px;
+    margin-top: 100px;
+}
+h1{
+    text-align: center;
+}
+.uname{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border-bottom: 1px dotted #fff;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+.email {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border-bottom: 1px dotted #fff;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+.pwd {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border-bottom: 1px dotted;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+button{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 30px;
+    outline:none;
+    border: none;
+    background: #60adde;
+    opacity: 0.7;
+    border-radius:20px ;
+    font-size: 20px;
+    color: #fff;
+}
+button :hover{
+    background: #003366;
+    opacity: 0.7;
+}
+/*validation*/
+.error{
+    color: red;
+}
