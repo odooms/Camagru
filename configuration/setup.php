@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
 $username = "root";
-$password = "changeme";
+$password = "123456";
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -20,7 +20,7 @@ try{
 
     // $conn->exec($sql);
 
-     echo "successfully";
+    // echo "successfully";
 
 }
 catch(PDOException $e)

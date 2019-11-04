@@ -5,7 +5,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 {
     if(empty($_POST["uname"])) {
         $UnameERROR = "Please enter a username.";
-    }else{
+	}else{
         $username = validate($_post['uname']);
             if(!preg_match('/^[a-zA-Z0-9\s]+$/', $username)){
             $UnameERROR = 'Name can only contain letters, numbers and white spaces';
@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         <link rel="stylesheet" type="text/css" href="Camagru.css">
         <body>
             <div class= "header">
-                <a href= "index.php">HOME PAGE</a>
+                <a href= "../index.php">HOME PAGE</a>
             </div>
             <div class = "wrap";>
                 <h1>sign up</h1>
@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                         <span class = "error"><?php if (isset($Pwd1ERROR)) echo $Pwd1ERROR ?> </span>
                     <input class = "pwd" type= "password" placeholder = "Confirm Password" name= "pwd2"/><br>
                         <span class = "error"><?php if (isset($Pwd2ERROR)) echo $Pwd2ERROR ?> </span>
-                    <button type = "submit" name= "signup">Submit</button>
+                    <button type="submit" name="signup">Create Account</button>
                         <p><a href= "login.php">Back to the login</a></p>
                 </form>
             </div>

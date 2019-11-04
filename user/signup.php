@@ -1,14 +1,16 @@
 <?php
-include("/goinfre/odooms/Desktop/MAMP/apache2/htdocs/camagru/configuration/setup.php");
+include_once("../configuration/setup.php");
 error_reporting(0);
+echo("ok");
 if(isset($_POST['signup']))
 {
     $username = $_POST['uname'];
     $userEmail = $_POST['email'];
     $password = $_POST['pword'];
-    // echo $username;
+//	echo $username;
+	
     // validation of username and email-id
-    $ret = "SELECT * FROM User WHERE username = :username || email = :userEmail";
+/*    $ret = "SELECT * FROM User WHERE username = :username || email = :userEmail";
     $queryt = $conn->prepare($ret);
     $queryt->bindParam(':username', $username,PDO::PARAM_STR);
     $queryt->bindParam(':userEmail', $userEmail,PDO::PARAM_STR);
@@ -24,14 +26,18 @@ if(isset($_POST['signup']))
         $query->bindParam(':uname', $username, PDO::PARAM_STR);
         $query->bindParam(':email', $userEmail, PDO::PARAM_STR);
         $query->bindParam(':pword', $password);
-        //$query->exec();
+        $query->exececute();
         echo "alal";
         $lastInsertId = $conn->$lastInsertId();
         if($lastInsertId){
             $msg = "You have Signup Successfully";
         }else{
             $error = "Username or Email-id already exist. please try again";
-        }
-    }
+		}
+	}*/
+	echo("hello");
 }
+echo("ssss");
+	//change to login .php
+	 header("Location: ../index.php")
 ?>
