@@ -10,31 +10,25 @@ if(isset($_POST['signup']))
 //	echo $username;
 	
     // validation of username and email-id
-/*    $ret = "SELECT * FROM User WHERE username = :username || email = :userEmail";
+    $ret = "SELECT * FROM User WHERE username = :username || email = :userEmail";
     $queryt = $conn->prepare($ret);
     $queryt->bindParam(':username', $username,PDO::PARAM_STR);
     $queryt->bindParam(':userEmail', $userEmail,PDO::PARAM_STR);
     $queryt->execute();
-    $results = $queryt->fetchAll(PDO::FETCH_OBJ);
+    $results = $queryt->fetchAll(void);
     echo "kkk";
     if($queryt->rowCount() == 0)
     {
         //insertion
         $sql = "INSERT INTO User (username, email, 'password') VALUES (:uname, :email, :pword)";
         $query = $conn->prepare($sql);
-        //binding post values
-        $query->bindParam(':uname', $username, PDO::PARAM_STR);
-        $query->bindParam(':email', $userEmail, PDO::PARAM_STR);
-        $query->bindParam(':pword', $password);
-        $query->exececute();
-        echo "alal";
-        $lastInsertId = $conn->$lastInsertId();
-        if($lastInsertId){
-            $msg = "You have Signup Successfully";
-        }else{
-            $error = "Username or Email-id already exist. please try again";
-		}
-	}*/
+       //binding post values
+       $query->bindParam(':uname', $username, PDO::PARAM_STR);
+       $query->bindParam(':email', $userEmail, PDO::PARAM_STR);
+       $query->bindParam(':pword', $password);
+       // $query->exececute();
+       echo "alal";
+    }
 	echo("hello");
 }
 echo("ssss");

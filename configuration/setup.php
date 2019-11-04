@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
 $username = "root";
-$password = "123456";
+$password = "changeme";
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -9,14 +9,13 @@ try{
    $conn ->exec("CREATE DATABASE IF NOT EXISTS camagru;");
      $conn ->exec("USE camagru");
      //$conn = new PDO("mysql:host=$servername;dbname=camagru", $username, $password);
-    // $sql = "CREATE TABLE IF NOT EXISTS User (
-    //     id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    //     username VARCHAR(25) NOT NULL,
-    //     `password` VARCHAR(50) NOT NULL,
-    //     email VARCHAR(50) NOT NULL,
-    //     verified int(12) NOT NULL,
-    //     verified_code int(12) NOT NULL
-    //     )";
+    $sql = "CREATE TABLE IF NOT EXISTS User (
+         id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+         username VARCHAR(25) NOT NULL,
+         `password` VARCHAR(50) NOT NULL,
+         email VARCHAR(50) NOT NULL,
+         verified int(12) NOT NULL,
+         verified_code int(12) NOT NULL)";
 
     // $conn->exec($sql);
 

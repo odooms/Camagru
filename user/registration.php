@@ -3,40 +3,35 @@
 $username = $email = $password = $Confirm_password = "";
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
-    if(empty($_POST["uname"])) {
+    if(empty(trim($_POST["uname"]))) {
         $UnameERROR = "Please enter a username.";
 	}else{
-        $username = validate($_post['uname']);
-            if(!preg_match('/^[a-zA-Z0-9\s]+$/', $username)){
-            $UnameERROR = 'Name can only contain letters, numbers and white spaces';
-        }
+        $username = trim($_POST['uname']);
     }
-    if(empty($_POST["email"])) {
+    
+    if(empty(trim($_POST["email"]))) {
         $EmailERROR = "Please enter you email.";
     }else{
-        $email= validate($_post['email']);
-            if(!filter_var($email, FILTER_VATIDATE_EMAIL)){
-            $EmailERROR = 'Invalid Email';
-        }
+        $email = trim($_POST['email']);
     }
-    if(empty($_POST["pwd1"])) {
-        $Pwd1ERROR = "Password cannot be empty";
-    }else{
-        $password= validate($_post['pwd1']);
-            if(strlen($password) < 6 ){
-            $Pwd1ERROR = 'Please should be longer than 6 characters';
-        }
-    }
-    if(empty($_POST["pwd2"])) {
-        $Pwd2ERROR = "Confirm password cannot be empty";
-    }else{
-        $Confirm_password = validate($_post['pwd2']);
-            if(strlen($Confirm_password ) < 6 ){
-            $Pwd2ERROR = 'Please should be longer than 6 characters';
-        }
-    }
-}
 
+    if(empty(trim($_POST["pwd1"]))) {
+        $Pwd1ERROR = "Password cannot be empty";
+    }elseif(strlen(trim($_POST['pwd1'])) < 6){
+        $Pwd1ERROR = "Password must have atleast 6 characters.";
+    }else{
+        $password = trim($_POST["password"]);
+    }
+
+    if(empty(trim($_POST["pwd2"]))) {
+        $Pwd1ERROR = "Password confirm password.";
+    }else{
+        $Confirm_password = trim($_POST["pwd2"]);
+        if(empty($Pwd1ERROR) && empty($password != $Confirm_password)){
+            $Pwd2ERROR = "password did not match.";
+        }
+    }
+} 
 ?>
 <html>
     <head>
