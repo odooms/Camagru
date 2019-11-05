@@ -1,6 +1,6 @@
 <?php
 require_once("/goinfre/odooms/Desktop/MAMP/apache2/htdocs/camagru/configuration/setup.php");
-session_start();
+//session_start();
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         $pword = test_input($_POST["pword"]);
     }
 
-    $logUname = mysql_string($db, $_POST["uname"]);
+    /*$logUname = mysql_string($db, $_POST["uname"]);
     $logpword = mysql_string($db, $_POST["pword"]);
     
     $sql = "SELECT id FROM user WHERE username = '$logUname' AND password '$logPword'";
@@ -32,7 +32,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         header("location:welcome.php");
     }else{
         $error = "Your Login Name or Password is Invalid";
-    }
+    }*/
+    header("Location: ../index.php");
 }
 ?>
 <!DOCTYPE html>
