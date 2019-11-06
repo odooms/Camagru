@@ -1,32 +1,45 @@
 <?php
 session_start();
 require("../config/database.php");
-
+function validation($data){
+    $data = trim($trim);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+};
 if(isset($_POST['login'])){
-    $Uname = trim(htmlspecialchars($_POST['uname']));
+    $Email = trim(htmlspecialchars($_POST['email']));
     $pwd = trim(htmlspecialchars($_POST['pword']));
+    
     try{
-        if(empty($Uname) || empty($pwd)){
+        if(empty($Email) || empty($pwd)){
             $_SESSION["error"] = "please fill in all the fields";
             header("Location: ./login.php");
             return;
-        }else{
+        }
+        else
+        {
             $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
             $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            $temp = $conn->prepare("SELECT id FROM users WHERE username = :username AND passwd = :passwd");
-            $temp->bindParam(':username', $Uname);
+            $temp = $conn->prepare("SELECT id FROM users WHERE email = :email AND passwd = :passwd");
+            $temp->bindParam(':email', $Email);
             $temp->bindParam(':passwd', $pwd);
             $temp->execute();
             
             if(!$temp->rowCount()){
-                echo "Either your email or password is incorrect";
+                
+                $_SESSION["error"] = "Either your email or password is incorrect";
+                header("Location: ./login.php");
+                return;
             }else{
-               
+                
                 $idArray = $temp->fetch(PDO::FETCH_NUM);
-               $id = $idArray[0];
-               $_SESSION['id'] = $id;
-               echo $id;
+                $id = $idArray[0];
+                $_SESSION['id'] = $id;
+               /*echo $id;*/
+                header("Location: ../home.php");
+                return ;
             }
         }
     }

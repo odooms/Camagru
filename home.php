@@ -1,5 +1,6 @@
 <?php 
 //include('session.php');
+session_start();
 ?>
 <html>
     <head>
@@ -9,9 +10,7 @@
         <body>
             <header>
                 <h2>header</h2>
-                <h1>Welcome <?php  ?></h1>
-				<h2><a href="user/login.php">Login</a></h2>
-				<h2><a href="user/registration.php">Register</a></h2>
+                <h1>Welcome <?php echo $_SESSION['id']; ?></h1>
             </header>
             <section>
                 <nav>
