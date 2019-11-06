@@ -21,7 +21,7 @@ h1{
     padding: 12px 5px;
     background: rgba(0,0,0,0.10);
     outline: none;
-    border-bottom: 1px dotted;
+    border-bottom: 1px dotted #fff;
     border-radius: 5px;
     margin: 5px;
     font-weight: bold;
@@ -32,7 +32,7 @@ h1{
     padding: 12px 5px;
     background: rgba(0,0,0,0.10);
     outline: none;
-    border-bottom: 1px dotted;
+    border-bottom: 1px dotted #fff;
     border-radius: 5px;
     margin: 5px;
     font-weight: bold;
@@ -43,7 +43,7 @@ h1{
     padding: 12px 5px;
     background: rgba(0,0,0,0.10);
     outline: none;
-    border-bottom: 1px dotted;
+    border-bottom: 1px dotted #fff;
     border-radius: 5px;
     margin: 5px;
     font-weight: bold;

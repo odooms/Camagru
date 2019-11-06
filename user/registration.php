@@ -1,5 +1,8 @@
 <?php
-//require("configuration/setup.php");
+
+session_start();
+
+/*require("configuration/setup.php");
 $username = $email = $password = $Confirm_password = "";
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
@@ -31,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             $Pwd2ERROR = "password did not match.";
         }
     }
-} 
+}*/
 ?>
 <html>
     <head>
@@ -42,6 +45,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             </div>
             <div class = "wrap";>
                 <h1>sign up</h1>
+                <?php
+                    if ($_SESSION["error"]) {
+                        echo $_SESSION["error"];
+                    }
+                    $_SESSION["error"] = null;
+                ?>
                 <form method= "post" action="signup.php">
                     <input class = "uname" type= "text" placeholder = "Enter Username" name = "uname"/><br>
                         <span class = "error"><?php if (isset($UnameERROR)) echo $UnameERROR ?> </span>
@@ -52,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                     <input class = "pwd" type= "password" placeholder = "Confirm Password" name= "pwd2"/><br>
                         <span class = "error"><?php if (isset($Pwd2ERROR)) echo $Pwd2ERROR ?> </span>
                     <button type="submit" name="signup">Create Account</button>
-                        <p><a href= "login.php">Back to the login</a></p>
+                    <p><a href= "login.php">Back to the login</a></p>
                 </form>
             </div>
         </body>
