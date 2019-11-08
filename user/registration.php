@@ -53,13 +53,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
                 ?>
                 <form method= "post" action="signup.php">
                     <input class = "uname" type= "text" placeholder = "Enter Username" name = "uname"/><br>
-                        <span class = "error"><?php if (isset($UnameERROR)) echo $UnameERROR ?> </span>
                     <input class = "email" placeholder = "Enter Email" name = "email"/><br>
-                        <span class = "error"><?php if (isset($EmailERROR)) echo $EmailERROR ?> </span>
                     <input class = "pwd" type= "password" placeholder = "Enter Password" name= "pwd1"/><br>
-                        <span class = "error"><?php if (isset($Pwd1ERROR)) echo $Pwd1ERROR ?> </span>
                     <input class = "pwd" type= "password" placeholder = "Confirm Password" name= "pwd2"/><br>
-                        <span class = "error"><?php if (isset($Pwd2ERROR)) echo $Pwd2ERROR ?> </span>
                     <button type="submit" name="signup">Create Account</button>
                     <p><a href= "login.php">Back to the login</a></p>
                 </form>

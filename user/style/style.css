@@ -1,12 +1,13 @@
 /* main_page*/
 
 header{
-    background-color: #666;
+    background-color:#ccccff;
     padding: 30px;
     text-align: center;
     font-size: 350x;
     color: water;
 }
+
 nav{
     float: left;
     padding: 20px;

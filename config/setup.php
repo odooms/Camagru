@@ -45,7 +45,7 @@ try {
          passwd VARCHAR(50) NOT NULL,
          email VARCHAR(50) NOT NULL,
          verified TINYINT(1) NOT NULL,
-         verified_code INT(12) NOT NULL
+         verified_code VARCHAR(50) NOT NULL
          )";
 
     $conn->exec($sql);

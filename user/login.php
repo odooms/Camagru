@@ -1,6 +1,5 @@
 <?php
 session_start();
-//require_once("/goinfre/odooms/Desktop/MAMP/apache2/htdocs/camagru/configuration/setup.php");
 ?>
 <!DOCTYPE html>
 <html>
