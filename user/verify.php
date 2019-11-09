@@ -2,7 +2,7 @@
 include_once("../config/database.php");
 if(isset($_GET['verified_code'])){
     $ver_code = $_GET['verified_code'];
-
+echo "ok";
     $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //Validate the email 

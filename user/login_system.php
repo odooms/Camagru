@@ -10,6 +10,9 @@ function validation($data){
 if(isset($_POST['login'])){
     $Email = trim(htmlspecialchars($_POST['email']));
     $pwd = trim(htmlspecialchars($_POST['pword']));
+    //$pwd = $_POST['pword'];
+    
+    $pwd = md5($pwd);
     
     try{
         if(empty($Email) || empty($pwd)){
@@ -37,7 +40,6 @@ if(isset($_POST['login'])){
                 $idArray = $temp->fetch(PDO::FETCH_NUM);
                 $id = $idArray[0];
                 $_SESSION['id'] = $id;
-               /*echo $id;*/
                 header("Location: ../home.php");
                 return ;
             }

@@ -20,6 +20,10 @@ if(isset($_POST['signup']))
             $_SESSION["error"] = "Your username must be at least 5 characters";
             header("Location: ./registration.php");
             return ;
+        }elseif (strlen($passWord) < 8){
+            $_SESSION["error"] = "Your Password must be at least 8 characters";
+            header("Location: ./registration.php");
+            return ;
         }elseif ($passWord != $Confirm_Password){
             $_SESSION["error"] = "Your passwords do not match";
             header("Location: ./registration.php");
@@ -56,15 +60,27 @@ if(isset($_POST['signup']))
                 if($stmt){
                     $to = $userEmail;
                     $subject = "Email Verification";
-                    $message = "<a href='http://localhost/Camagru/user/registration.php/verify.php?verified_code=$verified_CODE'>Register Account</a>";
+                    echo $message = "
+                    <html>
+                    <head>
+                    <title>Email verification
+                    </title>
+                    </head>
+                    <body>
+                    <P>This email contains a link</P>
+                    <a href='http://localhost:8080/Camagru/home.php'>Register Account</a>
+                    </body>
+                    </thml>";
                     $header = "From: odooms@student.wethinkcode.co.za \r\n";
+                    $header = "MIME-Version: 1.0" . "\r\n";
+                    $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     mail($to, $subject,$message,$header);
                     echo "ok";
-                    header("Location: ../thankyou.php");
+                    header("Location: ./registration.php");
+                    $_SESSION["error"] = "Thank you for registering. we have sent a verification email to the address provided";
                 }else{
                     echo "error";
                 }
-                // $_SESSION["error"] = "Please confirm email to login!!";
                 return ;
             }
         }

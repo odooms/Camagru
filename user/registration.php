@@ -1,40 +1,5 @@
 <?php
-
 session_start();
-
-/*require("configuration/setup.php");
-$username = $email = $password = $Confirm_password = "";
-if($_SERVER["REQUEST_METHOD"] === "POST")
-{
-    if(empty(trim($_POST["uname"]))) {
-        $UnameERROR = "Please enter a username.";
-	}else{
-        $username = trim($_POST['uname']);
-    }
-    
-    if(empty(trim($_POST["email"]))) {
-        $EmailERROR = "Please enter you email.";
-    }else{
-        $email = trim($_POST['email']);
-    }
-
-    if(empty(trim($_POST["pwd1"]))) {
-        $Pwd1ERROR = "Password cannot be empty";
-    }elseif(strlen(trim($_POST['pwd1'])) < 6){
-        $Pwd1ERROR = "Password must have atleast 6 characters.";
-    }else{
-        $password = trim($_POST["password"]);
-    }
-
-    if(empty(trim($_POST["pwd2"]))) {
-        $Pwd1ERROR = "Password confirm password.";
-    }else{
-        $Confirm_password = trim($_POST["pwd2"]);
-        if(empty($Pwd1ERROR) && empty($password != $Confirm_password)){
-            $Pwd2ERROR = "password did not match.";
-        }
-    }
-}*/
 ?>
 <html>
     <head>

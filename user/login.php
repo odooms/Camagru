@@ -20,9 +20,7 @@ $_SESSION["error"] = null;
 ?>
 <form  role = "form" action= "login_system.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
 <input class = "uname" type= "username" placeholder = "Enter your email" name = "email" />
-<span class = "error"><?php if (isset($EmailERROR)) echo $EmailERROR ?> </span>
 <input class = "pwd" type= "password" placeholder = "Enter your Password" name= "pword" />
-<span class = "error"><?php if (isset($PwordERROR)) echo $PwordERROR ?> </span>
 <button type="submit" name="login">Login</button>
 <br>
 <a href= "#" type = "forget"> Forget your password</a>
