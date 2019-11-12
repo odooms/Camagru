@@ -56,6 +56,7 @@ if(isset($_POST['signup']))
                 $stmt->bindParam(':verified', $verifiED);
                 $stmt->bindParam(':verified_code', $verified_CODE);
                 $stmt->execute();
+                
                 //send Email
                 if($stmt){
                     $to = $userEmail;
@@ -68,7 +69,7 @@ if(isset($_POST['signup']))
                     </head>
                     <body>
                     <P>This email contains a link</P>
-                    <a href='http://localhost:8080/Camagru/home.php'>Register Account</a>
+                    <a href='http://localhost:8080/Camagru/home.php?verified_code=".$verified_CODE."'>Register Account</a>
                     </body>
                     </thml>";
                     $header = "From: odooms@student.wethinkcode.co.za \r\n";

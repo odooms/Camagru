@@ -4,13 +4,7 @@ $db_dsn = "mysql:host=$servername;dbname=camagru";
 $server = "localhost";
 $username = "root";
 $password = "changeme";
-
-/*******************
- * 
- * CREATING DATABASE
- * 
- ********************/
-
+/*CREATING DATABASE*/
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -26,16 +20,9 @@ catch(PDOException $e)
 {
     echo $sql . "<br>" . $e->getMessage();
 }
-
-
-/*******************
- * 
- * CREATING TABLES
- * 
- ********************/
-
+/*CREATING TABLES*/
 try {
-    //$conn ->exec("USE camagru");
+    
     $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -47,14 +34,22 @@ try {
          verified TINYINT(1) NOT NULL,
          verified_code VARCHAR(50) NOT NULL
          )";
+    $conn->exec($sql);
+
+    $sql = "CREATE TABLE images (
+        id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        image_source VARCHAR(255) NOT NULL,
+        image_date datetime NOT NULL,
+        image_user VARCHAR(50) NOT NULL
+        )";
 
     $conn->exec($sql);
     echo "users table created successfully";
-
+    echo "images table created successfully";
 }
 catch(PDOException $e)
 {
     echo $sql . "<br>" . $e->getMessage();
 }
-//$conn = NUll;
+
 ?>

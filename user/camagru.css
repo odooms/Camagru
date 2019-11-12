@@ -65,7 +65,6 @@ button :hover{
     background: #003366;
     opacity: 0.7;
 }
-/*validation*/
 .error{
     color: red;
 }

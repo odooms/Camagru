@@ -4,9 +4,11 @@ session_start();
 <html>
 <head>
 <meta charset= "utf-8">
+<meta name = "viewport" content = "width=device-width, intial-scale=1">
 <link rel="stylesheet" type="text/css" href="user/style/home.css">
 </head>
 <body>
+
 <header>
 <table style="width:100%">
 <tr>
@@ -14,6 +16,7 @@ session_start();
 </tr>
 </table>
 </header>
+
 <section>
 <nav>
 <table >
@@ -28,20 +31,26 @@ session_start();
 <th><h2><a>account</a></h2></th>
 </tr>
 <tr>
-<th><h2><a>upload</a></h2></th>
+<th></th>
 </tr>
 </table>
 </nav>
+
+
 <article>
-<div class= "container">
-<canvas id= "cnvs" class = "canvas"></canvas>
-<img src= "" id= "mirror" class= "mirror">
-</div>
+<div id="vid-canvas"></div>
+
 </article>
 </section>
+
+
 <footer>
-<p></p>
+<input id= "vid-take" type= "button" value= "Take Photo">
+<!--<form action="upload.php" method= "post" enctype= "multipart/form-data">
+<input type= "file" name = "file">
+<button type= "submit" name = "submit_login">UPLOAD</button>-->
 </footer>
-</body>
-</head>
+
+<video id="vid-show" autoplay></video></body>
+<script src="js/webcam.js"></script>
 </html>

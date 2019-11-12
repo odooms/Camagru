@@ -1,24 +1,27 @@
 <?php
+session_start();
 include_once("../config/database.php");
-if(isset($_GET['verified_code'])){
-    $ver_code = $_GET['verified_code'];
-echo "ok";
-    $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
-    $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //Validate the email 
-    $temp = $conn->prepare("SELECT verified,verified_code FROM users WHERE verified 0 AND verified_code = '$ver_code' LIMIT 1");
-    if($temp->num_row == 1){
-        $update = $conn->prepare("UPDATE USER SET verified = 1 WHERE verified_code");
-        if($update){
-            echo"Your account has been verified, You my now login.";
-        }else{
-            $conn ->error;
-        }
-    }else{
-        echo "This account invalid or already verified";
+if(isset($_POST['signup']))
+{
+    $U_Email = $_POST['email'];
+    try{
+        $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //echo 'database connected';
+        $query = "UPDATE users SET verified = :verified WHERE email = :email";
+
+        $stmt = $conn->prepare($query);
+        $stmt->execute(array(
+            'verified' => 1,
+            'email' => $U_Email
+            )
+        );
+        //echo $stmt->rowCount(). 'records updated';
     }
-}else{
-    die("Something went Wrong");
+    catch(PDOException $error)
+    {
+        $error->getMessage();
+    }
 }
 ?>
 <html>
