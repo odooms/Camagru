@@ -1,12 +1,11 @@
 <?php
 session_start();
-include_once("../config/database.php");
-if(isset($_POST['signup']))
-{
-    $U_Email = $_POST['email'];
+include_once("../config/setup.php");
+	$U_Email = $_GET['email'];
+	echo $U_Email;
     try{
-        $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //$conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
+        //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //echo 'database connected';
         $query = "UPDATE users SET verified = :verified WHERE email = :email";
 
@@ -15,14 +14,14 @@ if(isset($_POST['signup']))
             'verified' => 1,
             'email' => $U_Email
             )
-        );
+		);
+		echo "UPDATED";
         //echo $stmt->rowCount(). 'records updated';
     }
     catch(PDOException $error)
     {
         $error->getMessage();
     }
-}
 ?>
 <html>
 <head>

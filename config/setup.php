@@ -3,14 +3,14 @@
 $db_dsn = "mysql:host=$servername;dbname=camagru";
 $server = "localhost";
 $username = "root";
-$password = "changeme";
+$password = "123456";
 /*CREATING DATABASE*/
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $conn ->exec("DROP DATABASE IF EXISTS camagru;");
-    echo "database dropped successfully";
+   // $conn ->exec("DROP DATABASE IF EXISTS camagru;");
+  //  echo "database dropped successfully";
     echo "<br>";
     $conn ->exec("CREATE DATABASE IF NOT EXISTS camagru;");
     echo "database created successfully";
@@ -26,7 +26,7 @@ try {
     $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "CREATE TABLE users (
+    $sql = "CREATE TABLE IF NOT EXISTS users (
          id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
          username VARCHAR(25) NOT NULL,
          passwd VARCHAR(50) NOT NULL,
@@ -36,7 +36,7 @@ try {
          )";
     $conn->exec($sql);
 
-    $sql = "CREATE TABLE images (
+    $sql = "CREATE TABLE IF NOT EXISTS images (
         id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         image_source VARCHAR(255) NOT NULL,
         image_date datetime NOT NULL,
@@ -49,6 +49,7 @@ try {
 }
 catch(PDOException $e)
 {
+	echo "ERROR";
     echo $sql . "<br>" . $e->getMessage();
 }
 

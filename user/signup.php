@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../config/database.php");
+include_once("../config/setup.php");
 
 if(isset($_POST['signup']))
 {
@@ -32,8 +32,8 @@ if(isset($_POST['signup']))
         //form is vaild
         else
         {
-            $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
-            $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           // $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
+           // $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $temp = $conn->prepare("SELECT * FROM users WHERE email = :email");
             $temp->execute([':email' => $userEmail]);
@@ -69,7 +69,7 @@ if(isset($_POST['signup']))
                     </head>
                     <body>
                     <P>This email contains a link</P>
-                    <a href='http://localhost:8080/Camagru/home.php?verified_code=".$verified_CODE."'>Register Account</a>
+                    <a href='http://localhost:8080/Camagru/user/verify.php?verified_code=".$verified_CODE."&email=".$userEmail."'>Register Account</a>
                     </body>
                     </thml>";
                     $header = "From: odooms@student.wethinkcode.co.za \r\n";
