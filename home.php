@@ -46,9 +46,11 @@ session_start();
 
 <footer>
 <input id= "vid-take" type= "button" value= "Take Photo">
-<!--<form action="upload.php" method= "post" enctype= "multipart/form-data">
-<input type= "file" name = "file">
-<button type= "submit" name = "submit_login">UPLOAD</button>-->
+<br/>
+<form name = "form "method= "post" action="upload.php"  enctype= "multipart/form-data">
+<input type= "file" name = "file"/><br/><br/>
+<button type= "submit" name = "submit_login">UPLOAD</button>
+</form>
 </footer>
 
 <video id="vid-show" autoplay></video></body>

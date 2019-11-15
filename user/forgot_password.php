@@ -13,14 +13,15 @@ session_start();
 <div class = "wrap">
 <h1>Forgot Password</h1>
 <?php
-if ($_SESSION["forgot"]){
-    echo $_SESSION["forgot"];
+if ($_SESSION["error"]) {
+    echo $_SESSION["error"];
 }
-$_SESSION["forgot"] = null;
+$_SESSION["error"] = null;
 ?>
-<form role = "form" action= "password_message.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
+<form role = "form" action= "reset_password.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
 <input class = "email" type= "userEmail" placeholder = "Enter email to reset your password" name = "email" />
-<button type="reset_password" name="reset_password">Reset my password</button>
+<button type="submit" name="reset_password">Reset my password</button>
+
 <br>
 <p><a href= "login.php">Back to the login</a></p>
 <a href= "registration.php" type = "signup"> Don't have account sign up</a></p>

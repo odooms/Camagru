@@ -3,15 +3,12 @@
 $db_dsn = "mysql:host=$servername;dbname=camagru";
 $server = "localhost";
 $username = "root";
-$password = "123456";
+$password = "changeme";
 /*CREATING DATABASE*/
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-   // $conn ->exec("DROP DATABASE IF EXISTS camagru;");
-  //  echo "database dropped successfully";
-    echo "<br>";
     $conn ->exec("CREATE DATABASE IF NOT EXISTS camagru;");
     echo "database created successfully";
     echo "<br>";
@@ -22,7 +19,6 @@ catch(PDOException $e)
 }
 /*CREATING TABLES*/
 try {
-    
     $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
     $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -44,8 +40,12 @@ try {
         )";
 
     $conn->exec($sql);
+
+
     echo "users table created successfully";
+    echo "<br>";
     echo "images table created successfully";
+    echo "<br>";
 }
 catch(PDOException $e)
 {

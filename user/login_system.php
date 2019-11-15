@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("../config/database.php");
+require("../config/setup.php");
 function validation($data){
     $data = trim($trim);
     $data = stripslashes($data);
@@ -22,8 +22,8 @@ if(isset($_POST['login'])){
         }
         else
         {
-            $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
-            $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           // $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
+          //  $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
             $temp = $conn->prepare("SELECT id FROM users WHERE email = :email AND passwd = :passwd");
             $temp->bindParam(':email', $Email);
@@ -37,9 +37,9 @@ if(isset($_POST['login'])){
                 return;
             }else{
                 
-                $idArray = $temp->fetch(PDO::FETCH_NUM);
-                $id = $idArray[0];
-                $_SESSION['id'] = $id;
+               // $idArray = $temp->fetch(PDO::FETCH_NUM);
+               // $id = $idArray[0];
+               // $_SESSION['id'] = $id;
                 header("Location: ../home.php");
                 return ;
             }

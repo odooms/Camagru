@@ -32,9 +32,6 @@ if(isset($_POST['signup']))
         //form is vaild
         else
         {
-           // $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
-           // $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $temp = $conn->prepare("SELECT * FROM users WHERE email = :email");
             $temp->execute([':email' => $userEmail]);
             $count = $temp->rowCount();
