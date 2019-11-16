@@ -1,27 +1,4 @@
-<?php 
-session_start();
-if (isset($_GET['pageno'])){
-    $pageno = $_GET['pageno'];
-}else{
-    $pageno = 1;
-}
-$no_of_images_per_page = 5;
-$offset = ($pageno-1) * $no_of_images_per_page;
 
-$total_images_sql = "SELECT COUNT(*) FROM table";
-//$result = mysqli_query($conn,$total_images_sql);
-$result = $conn->prepare($total_images_sql);
-$total_rows = execute($result)[0];
-$total_pages = ceil($total_rows / $no_of_images_per_page);
-
-$sql = "SELECT * FROM table LIMIT $offset, $no_of_images_per_page";
-//$res_data = $conn->prepare($sql);
-$res_data = mysqli_query($conn,$sql);
-while($row = mysqli_fetch_array($res_data)){
-
-}
-mysqli_close($conn);
-?>
 <html>
     <head>
         <meta charset= "utf-8">
@@ -63,8 +40,39 @@ mysqli_close($conn);
             </table>
         </nav>
  <!-------Main-section---------->       
+ 
     <article>
-    <!-- <div id="vid-canvas"></div> -->
+    <?php 
+    include 'config/setup.php';
+    session_start();
+    $pageno  = 1;
+    if (isset($_GET['pageno'])){
+        $pageno = $_GET['pageno'];
+    }else{
+        $pageno = 1;
+    }
+    $no_of_images_per_page = 5;
+    $offset = ($pageno-1) * $no_of_images_per_page;
+
+    $total_images_sql = "SELECT * FROM images";
+    //$result = mysqli_query($conn,$total_images_sql);
+    $result = $conn->prepare($total_images_sql);
+    $result->execute();
+    $total_rows = $result->rowCount();
+    $total_pages = ceil($total_rows / $no_of_images_per_page);
+
+    $sql = "SELECT * FROM images LIMIT $offset, $no_of_images_per_page";
+    $res_data = $conn->prepare($sql);
+    $res_data->execute();
+    // $res_data = mysqli_query($conn,$sql);
+    $list = '<ul class = "images">';
+    while($row = $res_data->fetch())
+    {
+        $list .= '<li class = "image-item"> <img src = '.$row['image_source'].' width = "200px" height = "200px"></li>';
+    }
+    echo $list;
+?>
+    
         <ul class ="pagination">
             <li>
                 <a href="?pageno=1">First</a>
@@ -80,9 +88,10 @@ mysqli_close($conn);
         </ul>
     </article>
 </section>
+<div id="vid-canvas"></div>
 <!-------footer---------->
 <footer>
-    <input id= "vid-take" type= "button" value= "Take Photo">
+    <input id= "vid-take" type= "button" value= "Take Photo" name = "snap_shot">
         <form name = "form "method= "post" action="upload.php"  enctype= "multipart/form-data">
     <input type= "file" name = "file"/><br/><br/>
         <button type= "submit" name = "submit_login">UPLOAD</button>

@@ -19,7 +19,7 @@ article{
     padding: 20px;
     width: 70%;
     background-color: #f1f1f1;
-    height: 300px;
+    height: 600px;
 
 }
 section:after{
@@ -60,4 +60,19 @@ nav article{
 .page_number{
     padding: 10px 20px 0px; 
     border-top: dotted 1px #CCC;
+}
+.images li
+{
+    list-style-type: none;
+    display: inline-block;
+}
+li .image-item
+{
+    list-style-type: none;
+    display: inline-block;
+}
+.pagination li
+{
+    list-style-type: none;
+    display: inline-block;
 }

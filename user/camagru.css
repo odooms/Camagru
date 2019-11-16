@@ -37,6 +37,17 @@ h1{
     margin: 5px;
     font-weight: bold;
 }
+.new_passd {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border-bottom: 1px dotted #fff;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
 .pwd {
     width: 100%;
     box-sizing: border-box;
