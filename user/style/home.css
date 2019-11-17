@@ -19,7 +19,7 @@ article{
     padding: 20px;
     width: 70%;
     background-color: #f1f1f1;
-    height: 600px;
+    height: 900px;
 
 }
 section:after{
@@ -28,7 +28,7 @@ section:after{
     clear: both;
 }
 footer{
-    background-color: #777;
+    background: #60adde;
     padding: 10px;
     text-align: center;
     clear: both;
@@ -65,14 +65,28 @@ nav article{
 {
     list-style-type: none;
     display: inline-block;
+    padding: 5px;
 }
 li .image-item
 {
     list-style-type: none;
     display: inline-block;
+    padding: 5px;
 }
 .pagination li
 {
     list-style-type: none;
     display: inline-block;
+    padding: 5px;
 }
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

@@ -1,9 +1,9 @@
 <?php
 
-//$db_dsn = "mysql:host=$servername;dbname=camagru";
+$db_dsn = "mysql:host=$servername;dbname=camagru";
 $server = "localhost";
 $username = "root";
-$password = "123456";
+$password = "changeme";
 /*CREATING DATABASE*/
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
@@ -33,7 +33,7 @@ try {
     $sql = "CREATE TABLE IF NOT EXISTS images (
         id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         image_source VARCHAR(255) NOT NULL,
-        image_date datetime NOT NULL,
+        image_date VARCHAR(200) NOT NULL,
         image_user VARCHAR(50) NOT NULL
         )";
 

@@ -13,7 +13,7 @@ include_once("../config/setup.php");
             )
 		);
 		echo "UPDATED";
-        //echo $stmt->rowCount(). 'records updated';
+        header("Location: ./login.php");
     }
     catch(PDOException $error)
     {

@@ -19,10 +19,6 @@ include_once("../config/setup.php");
            echo "Your email is incorrect";
         
         }else{
-            // $idArray = $query->fetch(PDO::FETCH_NUM);
-            // $id = $idArray[0];
-            // $_SESSION['id'] = $id;
-            // echo $id;
            $to = $email;
            $subject = "Reset your password";
            echo $message = "

@@ -1,26 +1,39 @@
 <?php
-include_once("../config/setup.php");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
-if(isset($_POST['uploads'])){
-    $countfiles = count($_FILES['uploads']['name']);
-    $temp = "INSERT INTO images (name, image) values(?,?)";
-    $stmt = $conn->prepare($temp);
-    
-    //loop all files
-    for($i = 0; $i< $countfiles;$i++)
-    // file name
-    $filename = $_FILES['uploads']['name'][$i];
-    $EXT = end((explode(".", $filename)));
-    $valid_ext = array("png", "jpeg", "jpg");
-    if(in_array($EXT, $valid_ext)){
-        if(move_upload_file($_FILES['uploads']['tmp_name'][$i], 'upload/'.$filename)){
+$server = "localhost";
+$username = "root";
+$password = "changeme";
+$db = "Camagru";
 
-        $stmt->execute(array($filename,'upload/'.$filename));
-        }
-        }
+$user = "orion";
+$date = time();
+
+    $conn = new PDO("mysql:host=$server;dbname=$db", $username, $password);
+    $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if(isset($_POST["UploadImage"])){
+    $folder = "uploads/";
+    $image = $_FILES["FileToUpload"]["name"];
+    $path = $folder . $image;
+    $target_file = $folder.basename($_FILES["FileToUpload"]["name"]);
+    $ImageType = pathinfo($target_file,PATHINFO_EXTENSION);
     
-    echo "file  upload successfully";
+    $allowed = array('jpeg', 'png', 'jpg');
+    $filename = $_FILES["FileToUpload"]["name"];
+    $EXT = pathinfo($filename,PATHINFO_EXTENSION);
+    
+    if(!in_array($EXT,$allowed)){
+        echo "Sorry, only jpg, jpeg, png files are allowed.";
+    }else{ 
+        $stmt = $conn->prepare("INSERT INTO IMAGES (image_source, image_date, image_user) 
+        VALUES ('$path', '$date', '$user')");
+                $stmt->execute();
 
 }
+}
+
 ?>
