@@ -28,15 +28,15 @@ include_once("../config/setup.php");
            </title>
            </head>
            <body>
-           <P>This email contains a link</P>
-           <a href='http://localhost:8080/Camagru/user/new_password.php?verified_code=".$verified_CODE."&email=".$userEmail."'>Register Account</a>
+           <P>Reset your password</P>
+           <a href='http://localhost:8080/Camagru/user/new_password.php?&email=".$email."'>password reset</a>
            </body>
            </thml>";
            $headers = "From: odooms@student.wethinkcode.co.za \r\n";
            $headers = "MIME-Version: 1.0" . "\r\n";
            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-           mail($to, $subject, $msg, $headers);
-           header("Location: ./registration.php");
+           mail($to, $subject, $message, $headers);
+          // header("Location: ./new_password.php");
         // }else{
         //     echo "error";
         // }

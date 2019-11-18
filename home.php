@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <h2><a>account</a></h2>
+                        <h2><a href="user/modify_account.php">modify <br>account</a></h2>
                     </th>
                 </tr>
                 <tr>

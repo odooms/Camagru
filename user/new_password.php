@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+$email = $_GET['email'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,10 +20,10 @@ if ($_SESSION["error"]) {
 }
 $_SESSION["error"] = null;
 ?>
-<form role = "form" action= "new_password.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
-<input class = new_passd type= "userEmail" placeholder = "New password" name = "New_passd" />
+<form role = "form" action= "update_password.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
+<input class = new_passd type= "password" placeholder = "New password" name = "New_passd" />
 <br>
-<input class = new_passd type= "userEmail" placeholder = " Confirm New password" name = "confirm_new_passd" />
+<input class = new_passd type= "password" placeholder = " Confirm New password" name = "confirm_new_passd" />
 <button type="submit" name="new_password">submit</button>
 
 <br>

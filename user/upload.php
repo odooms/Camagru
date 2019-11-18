@@ -9,7 +9,7 @@ $username = "root";
 $password = "changeme";
 $db = "Camagru";
 
-$user = "orion";
+$user = $_POST['uname'];
 $date = time();
 
     $conn = new PDO("mysql:host=$server;dbname=$db", $username, $password);

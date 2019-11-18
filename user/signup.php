@@ -66,7 +66,8 @@ if(isset($_POST['signup']))
                     </head>
                     <body>
                     <P>This email contains a link</P>
-                    <a href='http://localhost:8080/Camagru/user/verify.php?verified_code=".$verified_CODE."&email=".$userEmail."'>Register Account</a>
+                    <a href='http://localhost:8080/Camagru/user/verify.php?verified_code=".$verified_CODE."&email=".$userEmail."'>
+                    Register Account</a>
                     </body>
                     </thml>";
                     $header = "From: odooms@student.wethinkcode.co.za \r\n";
