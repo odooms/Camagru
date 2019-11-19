@@ -22,9 +22,6 @@ if(isset($_POST['login'])){
         }
         else
         {
-           // $conn = new PDO("mysql:host=$server;dbname=camagru", $username, $password);
-          //  $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
             $temp = $conn->prepare("SELECT id FROM users WHERE email = :email AND passwd = :passwd");
             $temp->bindParam(':email', $Email);
             $temp->bindParam(':passwd', $pwd);
@@ -36,10 +33,7 @@ if(isset($_POST['login'])){
                 header("Location: ./login.php");
                 return;
             }else{
-                
-               // $idArray = $temp->fetch(PDO::FETCH_NUM);
-               // $id = $idArray[0];
-               // $_SESSION['id'] = $id;
+            
                 header("Location: ../home.php");
                 return ;
             }

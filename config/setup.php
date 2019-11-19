@@ -3,7 +3,7 @@
 $db_dsn = "mysql:host=$servername;dbname=camagru";
 $server = "localhost";
 $username = "root";
-$password = "123456";
+$password = "changeme";
 /*CREATING DATABASE*/
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);

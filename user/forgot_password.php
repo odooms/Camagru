@@ -18,7 +18,7 @@ if ($_SESSION["error"]) {
 }
 $_SESSION["error"] = null;
 ?>
-<form role = "form" action= "reset_password.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
+<form role = "form" action= "forgot_password.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
 <input class = "email" type= "userEmail" placeholder = "Enter email to reset your password" name = "email" />
 <button type="submit" name="reset_password">Reset my password</button>
 

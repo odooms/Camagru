@@ -19,6 +19,7 @@ include_once("../config/setup.php");
            echo "Your email is incorrect";
         
         }else{
+            $_SESSION["error"] = "we have sent a reset password link to your email address";
            $to = $email;
            $subject = "Reset your password";
            echo $message = "
