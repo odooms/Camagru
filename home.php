@@ -34,6 +34,7 @@
                 </tr>
                 <tr>
                     <th>
+                    <h2><a href="gallery.php">image<br>editor</a></h2>
                     </th>
                 </tr>
             </table>
@@ -82,25 +83,10 @@
             <li>
                 <a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
         </ul>
-        <div class="row">
-            <div class="column">
-                <video id="vid-show" autoplay></video>
-            </div>
-            <div class="column">
-            <div id="vid-canvas"></div>
-            </div>.
-            </div>
     </article>
 </section>
 <!-------footer---------->
 <footer>
-     <!----webcam------>
-    <input id= "vid-take" type= "button" value= "Take Photo" name = "snap_shot">
-    <!----upload------>
-        <form action="home.php" method= "post" name = "form "enctype= "multipart/form-data">
-    <input type= "file" name = "FileToUpload" id = "FileToUpload">
-        <button type= "submit" value = "Upload Image" name = "UploadImage">UPLOAD</button>
-        </form>
 </footer>  
 </body>
     <script src="js/webcam.js"></script>

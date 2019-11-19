@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['updatePasswdNeedEmail'] = $_POST['email'];
 ?>
 <!DOCTYPE html>
 <html>

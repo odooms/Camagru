@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("../config/setup.php");
+echo $email;
 
 if(isset($_POST['modify']))
 {
@@ -12,6 +13,11 @@ if(isset($_POST['modify']))
     $userEmail = $_POST['mod_email'];
     $verifiED = 0;
     
+    echo $userName;
+    echo  $passWord;
+    echo $Confirm_Password;
+    echo $userEmail;
+    echo $verifiED;
     try {
         if (empty($userName) || empty($userEmail) || empty($passWord)) {
             $_SESSION["mod_error"] = "Please enter all fields";

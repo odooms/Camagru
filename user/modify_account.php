@@ -9,7 +9,7 @@ session_start();
                 <a href= "../home.php">HOME PAGE</a>
             </div>
             <div class = "wrap";>
-                <h1>modify account</h1>
+                <h1>User account</h1>
                 <?php
                     if ($_SESSION["mod_error"]) {
                         echo $_SESSION["mod_error"];
@@ -17,8 +17,8 @@ session_start();
                     $_SESSION["mod_error"] = null;
                 ?>
                 <form method= "post" action = "modify_setup.php">
-                    <input class = "uname" type= "text" placeholder = "Enter Username" name = "mod_uname"/><br>
-                    <input class = "email" placeholder = "Enter Email" name = "mod_email"/><br>
+                    <p>1)<a href= "change_username.php">change Username</a></p>
+                    <input class = "email" type = "email" placeholder = "Enter Email" name = "mod_email"/><br>
                     <input class = "pwd" type= "password" placeholder = "Enter Password" name= "mod_pwd1"/><br>
                     <input class = "pwd" type= "password" placeholder = "Confirm Password" name= "mod_pwd2"/><br>
                     <button type="submit" name="modify">update account</button>

@@ -19,7 +19,7 @@ article{
     padding: 20px;
     width: 70%;
     background-color: #f1f1f1;
-    height: 900px;
+    height: 600px;
 
 }
 section:after{
@@ -90,11 +90,4 @@ li .image-item
     clear: both;
     display: table;
   }
-  #stick1 {
-    width: 25%;
-    position: absolute;
-    top: 75%;
-    left: 75%;
-    z-index: 3;
-    visibility: hidden;
-}
+ 
