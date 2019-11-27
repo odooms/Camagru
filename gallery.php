@@ -122,7 +122,7 @@
 </section>
 <!-------footer---------->
 <footer>
-        <form action="gallery.php" method= "post" name = "form "enctype= "multipart/form-data">
+        <form action="user/upload.php" method= "post" name = "form "enctype= "multipart/form-data">
     <input type= "file" name = "FileToUpload" id = "FileToUpload">
         <button type= "submit" value = "Upload Image" name = "UploadImage">UPLOAD</button>
         </form>
