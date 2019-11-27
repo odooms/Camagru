@@ -10,6 +10,7 @@ if(isset($_POST['signup']))
     $Confirm_Password = $_POST['pwd2'];
     $userEmail = $_POST['email'];
     $verifiED = 0;
+    $_SESSION['uname'] = $_POST['uname'];
     
     try {
         if (empty($userName) || empty($userEmail) || empty($passWord)) {
@@ -29,6 +30,7 @@ if(isset($_POST['signup']))
             header("Location: ./registration.php");
             return ;
         }
+        
         //form is vaild
         else
         {

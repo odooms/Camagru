@@ -28,7 +28,7 @@ section:after{
     clear: both;
 }
 footer{
-    background: #60adde;
+    background:white;
     padding: 10px;
     text-align: center;
     clear: both;
@@ -82,12 +82,14 @@ li .image-item
 
 .column {
     float: left;
-    width: 33.33%;
-    padding: 5px;
+    width: 48%;
+    padding: 3px;
   }
   .row::after {
     content: "";
     clear: both;
     display: table;
   }
- 
+  .webcam li{
+     display: inline;
+ } 

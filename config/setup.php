@@ -38,6 +38,16 @@ try {
         )";
 
     $conn->exec($sql);
+
+    $sql = "CREATE TABLE IF NOT EXISTS comments (
+        id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        comments VARCHAR(255) NOT NULL,
+        image_id VARCHAR(255) NOT NULL,
+        `user_id` VARCHAR(200) NOT NULL,
+        post_id VARCHAR(50) NOT NULL
+        )";
+
+    $conn->exec($sql);
     echo "<br>";
 }
 catch(PDOException $e)

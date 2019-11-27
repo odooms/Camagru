@@ -10,8 +10,6 @@ function validation($data){
 if(isset($_POST['login'])){
     $Email = trim(htmlspecialchars($_POST['email']));
     $pwd = trim(htmlspecialchars($_POST['pword']));
-    //$pwd = $_POST['pword'];
-    
     $pwd = md5($pwd);
     
     try{

@@ -1,19 +1,9 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 session_start();
-
-$server = "localhost";
-$username = "root";
-$password = "changeme";
-$db = "Camagru";
+include_once("../config/setup.php");
 
 $user = $_POST['uname'];
 $date = time();
-
-    $conn = new PDO("mysql:host=$server;dbname=$db", $username, $password);
-    $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if(isset($_POST["UploadImage"])){
     $folder = "uploads/";
@@ -35,5 +25,4 @@ if(isset($_POST["UploadImage"])){
 
 }
 }
-
 ?>

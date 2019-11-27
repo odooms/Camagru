@@ -2,7 +2,7 @@
 <?php
 session_start();
 $reset_email = $_GET['email'];
-$_SESSION["email"];
+$_SESSION["email"] = $_GET['email'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,10 +16,10 @@ $_SESSION["email"];
 <div class = "wrap">
 <h1>New Password</h1>
 <?php
-if ($_SESSION["error"]) {
-    echo $_SESSION["error"];
+if ($_SESSION["pwd_error"]) {
+    echo $_SESSION["pwd_error"];
 }
-$_SESSION["error"] = null;
+$_SESSION["pwd_error"] = null;
 ?>
 <form role = "form" action= "update_password.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
 <input class = new_passd type= "password" placeholder = "New password" name = "New_passd" />
@@ -29,7 +29,7 @@ $_SESSION["error"] = null;
 
 <br>
 <p><a href= "login.php">Back to the login</a></p>
-<a href= "registration.php" type = "signup"> Don't have account sign up</a></p>
+<!-- <a href= "registration.php" type = "signup"> Don't have account sign up</a></p> -->
 </form>
 <div><?php echo $error;?></div>
 </div>

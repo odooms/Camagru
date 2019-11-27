@@ -19,7 +19,7 @@ if ($_SESSION["error"]) {
 $_SESSION["error"] = null;
 ?>
 <form  role = "form" action= "login_system.php" <?php htmlspecialchars($_SERVER['PHP_SELF']);?> method = "POST">
-<input class = "email" type= "useremail" placeholder = "Enter your email" name = "email" />
+<input class = "email" type= "useremail" placeholder = "Enter your email" name= "email" />
 <input class = "pwd" type= "password" placeholder = "Enter your Password" name= "pword" />
 <button type="submit" name="login">Login</button>
 <br>

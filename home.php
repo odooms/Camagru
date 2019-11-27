@@ -24,12 +24,12 @@
                 </tr>
                 <tr>
                     <th>
-                        <h2><a href="index.php">Log out</a></h2>
+                        <h2><a href="user/logout.php">Log out</a></h2>
                     </th>
                 </tr>
                 <tr>
                     <th>
-                        <h2><a href="user/modify_account.php">modify <br>account</a></h2>
+                        <h2><a href="user/account.php">modify <br>account</a></h2>
                     </th>
                 </tr>
                 <tr>
@@ -39,8 +39,7 @@
                 </tr>
             </table>
         </nav>
- <!-------Main-section---------->       
- 
+ <!-------Main-section---------->
     <article>
     <?php 
     include 'config/setup.php';
@@ -66,10 +65,17 @@
     $list = '<ul class = "images">';
     while($row = $res_data->fetch())
     {
-        $list .= '<li class = "image-item"> <img src = '.$row['image_source'].' width = "200px" height = "200px"></li>';
+        $list .= '<li class = "image-item"> <div><img src = '.$row['image_source'].' width = "200px" height = "200px">
+        <form action="user/comment.php" method="post">
+        <div>
+        <textarea name="comments" id="comment" placeholder="add your comments "style="font-family" name="com" ></textarea>
+        </div>
+        <button type="submit" name="submit">submit</button> <button type="submit" name="likes">likes</button>
+        </div>
+        </li>';
     }
     echo $list;
-?>
+    ?>
         <ul class ="pagination">
             <li>
                 <a href="?pageno=1">First</a>

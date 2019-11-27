@@ -19,7 +19,7 @@
             <table>
                 <tr>
                     <th>
-                        <h2><h2>
+                        <h2><a href="home.php">home page</a><h2>
                     </th>
                 </tr>
                 <tr>
@@ -40,8 +40,7 @@
                 </tr>
             </table>
         </nav>
- <!-------Main-section---------->       
- 
+ <!-------Main-section---------->
     <article>
         <!-- <div class="row">
             <div class="column">
@@ -51,9 +50,10 @@
                 <div id="vid-canvas"></div>
             </div>
         </div> -->
-
-
-        <ul class ="pagination">
+        <table >
+  <tr>
+    <td>
+        <ul class ="webcam">
             <li>
                 <div class="column">
                     <video id="vid-show" autoplay></video>
@@ -66,14 +66,67 @@
                 </div>
             </li>
         </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <?php 
+    include 'config/setup.php';
+    session_start();
+    $pageno  = 1;
+    if (isset($_GET['pageno'])){
+        $pageno = $_GET['pageno'];
+    }else{
+        $pageno = 1;
+    }
+    $no_of_images_per_page = 5;
+    $offset = ($pageno-1) * $no_of_images_per_page;
+
+    $total_images_sql = "SELECT * FROM images";
+    $result = $conn->prepare($total_images_sql);
+    $result->execute();
+    $total_rows = $result->rowCount();
+    $total_pages = ceil($total_rows / $no_of_images_per_page);
+
+    $sql = "SELECT * FROM images LIMIT $offset, $no_of_images_per_page";
+    $res_data = $conn->prepare($sql);
+    $res_data->execute();
+    $list = '<ul class = "images">';
+    while($row = $res_data->fetch())
+    {
+        $list .= '<li class = "image-item"> <img src = '.$row['image_source'].' width = "100px" height = "100px"></li>';
+    }
+    echo $list;
+    ?>
+    </td>
+  </tr>
+  <tr>
+    <td><ul class ="pagination">
+            <li>
+                <a href="?pageno=1">First</a>
+            </li>
+            <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
+                <a href="<?php if($pageno <= 1){ echo 'gallery.php'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
+            </li>
+            <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+                <a href="<?php if($pageno >= $total_pages){ echo 'gallery.php'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
+            </li>
+            <li>
+                <a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
+        </ul></td>
+  </tr>
+</table>
+        
+        
     </article>
 </section>
 <!-------footer---------->
 <footer>
-        <form action="home.php" method= "post" name = "form "enctype= "multipart/form-data">
+        <form action="gallery.php" method= "post" name = "form "enctype= "multipart/form-data">
     <input type= "file" name = "FileToUpload" id = "FileToUpload">
         <button type= "submit" value = "Upload Image" name = "UploadImage">UPLOAD</button>
         </form>
+        
 </footer>  
 </body>
     <script src="js/webcam.js"></script>
