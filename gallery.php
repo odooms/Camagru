@@ -42,71 +42,35 @@
         </nav>
  <!-------Main-section---------->
     <article>
-        <table >
-  <tr>
-    <td>
-        <ul class ="webcam">
-            <li>
-                <div class="column">
-                    <video id="vid-show" autoplay></video>
-                </div>
-            </li>
-            <li>
+       <table>
+           <tr> 
+               <td> 
                 <div class="column">
                     <div id="vid-canvas">
-                    <div class= "w3-container">
-                    <img class= "w3-hover-sepia w3-mobile" id= "pow" src= "images/overlays/img.png" onclick="this"> 
-                    <script>
-                    var overlays = [];
-                    function temp(x)
-                    {
-                        if(this.id == "pow")
-                        {
-                            if(document.getElementById('overlay_1').hasAttribute('src')){
-                                document.getElementById('overlay_1').style.dispaly = "none";
-                                document.getElementById('overlay_1').removeAttribute('src');
-                                count i = overlays.indexOF('img.png');
-                                if (i > -1)
-                                {
-                                    overlay.splice(i, 1);
-                                    console.log(overlays);
-                                }
-                            }
-                            else{
-                            document.getElementById('overlay_1').style.display = "block";
-                            document.getElementById('overlay_1').setAttribute('src', x.src);
-                            overlays.push('img.png');
-                            console.log(overlays);
-                        }
-                    }
-                }
-                    function takePicture(){
-                        const context = canvas.getContext('2d');
-                        if (video.style.display != "none")
-                        {
-                            block = 0;
-                            if (width && height)
-                            {
-                                canvas.width = width;
-                                canvas.height = height;
-                                context.drawImage(video, 0, 0, width, height);
-                                for(var i = 0; i < overlays.length; i++){
-                                if(overlay[i] == "img.png"){
-                                    context.drawImage(pow, 0, 0, 50, 50);
-                                }
-                            }
-                            }
-                            
-                        }
-                    }
-                    </script>
-                    </div>
+                        <div class= "camera">
+                            <video id="vid-show" autoplay></video>
+                            <div id="camera"></div>
+                            <canvas id="myCanvas" height= "250" width= "250"></canvas>
+                        </div>
+                        <div class="draw_container">
+                            <table><tr><td>
+                            <img src= "images/overlays/img.png" id= "pow" alt= "">
+                            <button id="img" onclick= "img1();">draw image</button>
+                        </td>
+                        <td>
+                            <img src= "images/overlays/omg.png" id= "omg" alt= "">
+                            <button id="img" onclick= "img2();">draw image</button>
+                        </td>
+                        <td>
+                            <img src= "images/overlays/nice.png" id= "nice" alt= "">
+                            <button id="img" onclick= "img3();">draw image</button>
+                        </td></tr></table>
+                        <script src= "user/draw_to_image.js" type="text/javascript"></script>
+                        </div>
                     </div>
                 </div>
-            </li>
-        </ul>
-    </td>
-  </tr>
+</td>
+</tr>
   <tr>
     <td>
         <?php 
@@ -139,6 +103,7 @@
     ?>
     </td>
   </tr>
+  
   <tr>
     <td><ul class ="pagination">
             <li>
@@ -163,10 +128,10 @@
 <footer>
         <form action="user/upload.php" method= "post" name = "form "enctype= "multipart/form-data">
     <input type= "file" name = "FileToUpload" id = "FileToUpload">
-        <button type= "submit" value = "Upload Image" name = "UploadImage">UPLOAD</button>
+        <button id = "Image"type= "submit" value = "Upload Image" name = "UploadImage">UPLOAD</button>
         </form>
         
-</footer>  
+</footer>
+<script src="js/webcam.js"></script>  
 </body>
-    <script src="js/webcam.js"></script>
 </html>
