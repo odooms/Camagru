@@ -42,14 +42,6 @@
         </nav>
  <!-------Main-section---------->
     <article>
-        <!-- <div class="row">
-            <div class="column">
-                <video id="vid-show" autoplay></video>
-            </div>
-            <div class="column">
-                <div id="vid-canvas"></div>
-            </div>
-        </div> -->
         <table >
   <tr>
     <td>
@@ -62,6 +54,53 @@
             <li>
                 <div class="column">
                     <div id="vid-canvas">
+                    <div class= "w3-container">
+                    <img class= "w3-hover-sepia w3-mobile" id= "pow" src= "images/overlays/img.png" onclick="this"> 
+                    <script>
+                    var overlays = [];
+                    function temp(x)
+                    {
+                        if(this.id == "pow")
+                        {
+                            if(document.getElementById('overlay_1').hasAttribute('src')){
+                                document.getElementById('overlay_1').style.dispaly = "none";
+                                document.getElementById('overlay_1').removeAttribute('src');
+                                count i = overlays.indexOF('img.png');
+                                if (i > -1)
+                                {
+                                    overlay.splice(i, 1);
+                                    console.log(overlays);
+                                }
+                            }
+                            else{
+                            document.getElementById('overlay_1').style.display = "block";
+                            document.getElementById('overlay_1').setAttribute('src', x.src);
+                            overlays.push('img.png');
+                            console.log(overlays);
+                        }
+                    }
+                }
+                    function takePicture(){
+                        const context = canvas.getContext('2d');
+                        if (video.style.display != "none")
+                        {
+                            block = 0;
+                            if (width && height)
+                            {
+                                canvas.width = width;
+                                canvas.height = height;
+                                context.drawImage(video, 0, 0, width, height);
+                                for(var i = 0; i < overlays.length; i++){
+                                if(overlay[i] == "img.png"){
+                                    context.drawImage(pow, 0, 0, 50, 50);
+                                }
+                            }
+                            }
+                            
+                        }
+                    }
+                    </script>
+                    </div>
                     </div>
                 </div>
             </li>
