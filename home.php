@@ -65,14 +65,22 @@
     $list = '<ul class = "images">';
     while($row = $res_data->fetch())
     {
-        $list .= '<li class = "image-item"> <div><img src = '.$row['image_source'].' width = "200px" height = "200px">
-        <form action="user/comment.php" method="post">
-        <div>
-        <textarea name="comments" id="comment" placeholder="add your comments "style="font-family" name="com" ></textarea>
-        </div>
-        <button type="submit" name="submit">submit</button> <button type="submit" name="likes">likes</button>
-        </div>
-        </li>';
+		$list .= '<li class = "image-item">
+						<div>
+							<div>
+								'.$row['image_user'].'
+							</div>
+							<img src = '.$row['image_source'].' width = "200px" height = "200px">
+       						<form action="user/comment.php" method="post">
+        						<div>
+									 <textarea name="comments"  placeholder="add your comments "style="font-family" name="com" ></textarea>
+								</div>
+								<button type="submit" name="submit">submit</button> <button type="submit" name="likes">likes</button>
+								<input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
+								<input type="hidden" name="image_id" value='.$row['id'].'/>
+							</form>
+						</div>
+        			</li>';
     }
     echo $list;
     ?>

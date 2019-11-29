@@ -31,7 +31,7 @@ if(isset($_POST['login'])){
                 header("Location: ./login.php");
                 return;
             }else{
-            
+           		$_SESSION['uname'] = $_POST['email']; 
                 header("Location: ../home.php");
                 return ;
             }

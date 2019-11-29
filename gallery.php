@@ -65,8 +65,7 @@
                             <img src= "images/overlays/nice.png" id= "nice" alt= "">
                             <button id="img" onclick= "img3();">draw image</button>
                         </td></tr></table>
-                        <script src= "user/draw_to_image.js" type="text/javascript"></script>
-                        </div>
+                                             </div>
                     </div>
                 </div>
 </td>
@@ -132,6 +131,8 @@
         </form>
         
 </footer>
-<script src="js/webcam.js"></script>  
+<script src="js/webcam.js"></script> 
+<script src= "user/draw_to_image.js" type="text/javascript"></script> 
+
 </body>
 </html>

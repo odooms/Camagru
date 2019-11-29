@@ -1,9 +1,9 @@
 <?php
 
-$db_dsn = "mysql:host=$servername;dbname=camagru";
+$db_dsn = "mysql:host=localhost;dbname=camagru";
 $server = "localhost";
 $username = "root";
-$password = "changeme";
+$password = "123456";
 /*CREATING DATABASE*/
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
@@ -41,7 +41,7 @@ try {
 
     $sql = "CREATE TABLE IF NOT EXISTS comments (
         id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        comments VARCHAR(255) NOT NULL,
+        comment VARCHAR(255) NOT NULL,
         image_id VARCHAR(255) NOT NULL,
         `user_id` VARCHAR(200) NOT NULL,
         post_id VARCHAR(50) NOT NULL

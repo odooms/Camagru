@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("../config/setup.php");
 
 if(isset($_POST['signup']))
@@ -10,7 +9,7 @@ if(isset($_POST['signup']))
     $Confirm_Password = $_POST['pwd2'];
     $userEmail = $_POST['email'];
     $verifiED = 0;
-    $_SESSION['uname'] = $_POST['uname'];
+    //$_SESSION['uname'] = $_POST['uname'];
     
     try {
         if (empty($userName) || empty($userEmail) || empty($passWord)) {
