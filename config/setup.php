@@ -3,7 +3,7 @@
 $db_dsn = "mysql:host=localhost;dbname=camagru";
 $server = "localhost";
 $username = "root";
-$password = "123456";
+$password = "changeme";
 /*CREATING DATABASE*/
 try{
     $conn = new PDO("mysql:host=$server", $username, $password);
@@ -46,6 +46,16 @@ try {
         `user_id` VARCHAR(200) NOT NULL,
         post_id VARCHAR(50) NOT NULL
         )";
+    
+    $conn->exec($sql);
+    
+    $sql = "CREATE TABLE IF NOT EXISTS likes (
+            id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            `like` INT (12) NOT NULL,
+            image_id VARCHAR(255) NOT NULL,
+            `user_id` VARCHAR(200) NOT NULL,
+            post_id VARCHAR(50) NOT NULL
+            )";
 
     $conn->exec($sql);
     echo "<br>";

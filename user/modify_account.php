@@ -17,15 +17,23 @@ session_start();
                     $_SESSION["mod_error"] = null;
                 ?>
                 <form method= "post" action = "modify_setup.php">
-                    <!-- <p>1)<a href= "change_username.php">change Username</a></p> -->
+                    
                     <input class = "uname" type = "text" placeholder = "Enter your new username" name = "mod_user"/><br>
                     <input class = "email" type = "email" placeholder = "Enter Email" name = "mod_email"/><br>
                     <input class = "pwd" type= "password" placeholder = "Enter Password" name= "mod_pwd1"/><br>
                     <input class = "pwd" type= "password" placeholder = "Confirm Password" name= "mod_pwd2"/><br>
+                    <label class = "switch">Email Notification
+                    <input type = "checkbox" name = "No_Email" value= "1">
+                    <span class ="slider"></span>
+                    </label>
                     <button type="submit" name="modify">update account</button>
-                    
                 </form>
             </div>
         </body>
     </head>
 </html>
+<script>
+$(document).ready(function(){
+    on 1
+}
+</script>

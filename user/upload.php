@@ -2,7 +2,7 @@
 session_start();
 include_once("../config/setup.php");
 
-$user = $_POST['uname'];
+$user = $_SESSION['login_user'];
 $date = time();
 
 if(isset($_POST["UploadImage"])){
@@ -25,6 +25,7 @@ if(isset($_POST["UploadImage"])){
     	    $stmt = $conn->prepare("INSERT INTO IMAGES (image_source, image_date, image_user) 
     	    VALUES ('$path', '$date', '$user')");
 			$stmt->execute();
+			echo $user;
 			header("Location: ../gallery.php");
 		} else {
 			echo "failed to upload";

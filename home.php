@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <h2><a href="user/account.php">modify <br>account</a></h2>
+                        <h2><a href="user/modify_account.php">modify <br>account</a></h2>
                     </th>
                 </tr>
                 <tr>
@@ -72,12 +72,13 @@
 							</div>
 							<img src = '.$row['image_source'].' width = "200px" height = "200px">
        						<form action="user/comment.php" method="post">
-        						<div>
+                                <div>
 									 <textarea name="comments"  placeholder="add your comments "style="font-family" name="com" ></textarea>
 								</div>
 								<button type="submit" name="submit">submit</button> <button type="submit" name="likes">likes</button>
-								<input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
-								<input type="hidden" name="image_id" value='.$row['id'].'/>
+                                <input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
+                                <input type="hidden" name="image_id" value='.$row['id'].'/>
+                                <?php echo ?>
 							</form>
 						</div>
         			</li>';

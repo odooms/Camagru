@@ -31,7 +31,12 @@ if(isset($_POST['login'])){
                 header("Location: ./login.php");
                 return;
             }else{
-           		$_SESSION['uname'] = $_POST['email']; 
+                $tmp = $conn->prepare("SELECT username FROM users WHERE email = :email");
+                $tmp->bindParam(':email', $Email);
+                $tmp->execute();
+                $result = $tmp->fetch();
+                $_SESSION['login_user'] = $result[0];
+           		$_SESSION['email'] = $_POST['email']; 
                 header("Location: ../home.php");
                 return ;
             }
