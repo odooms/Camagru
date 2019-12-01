@@ -48,15 +48,15 @@
 
     include 'config/setup.php';
     session_start();
+    
 
     $user_id = `image_user`;
-    $tmp = "SELECT * FROM comments WHERE user_id = $user_id";
+    $tmp = "SELECT * FROM comments WHERE `user_id` = $user_id";
     $com_data = $conn->prepare($tmp);
     $com_data->execute();
-    $com_list = '<ul class = "images"';
+    $com_list = '<div>';
     $row_data = $tmp->fetch();
     while($row_data = $tmp->fetch());
-    echo $row_data;
 
     $pageno  = 1;
     if (isset($_GET['pageno'])){
@@ -95,8 +95,8 @@
                                 <input type="hidden" name="image_id" value='.$row['id'].'/>
                                 <?php
                                 $com_list = "<div>'
-                                .$row_data['user_id'].'
-                                </div>";
+                                .$row_data['comment'].'
+                                </div>"
                                 return ;
                                 ?>
 							</form>
