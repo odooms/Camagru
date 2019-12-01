@@ -22,6 +22,8 @@ session_start();
                     <input class = "email" type = "email" placeholder = "Enter Email" name = "mod_email"/><br>
                     <input class = "pwd" type= "password" placeholder = "Enter Password" name= "mod_pwd1"/><br>
                     <input class = "pwd" type= "password" placeholder = "Confirm Password" name= "mod_pwd2"/><br>
+                    
+                    
                     <label class = "switch">Email Notification
                     <input type = "checkbox" name = "No_Email" value= "1">
                     <span class ="slider"></span>
@@ -32,8 +34,3 @@ session_start();
         </body>
     </head>
 </html>
-<script>
-$(document).ready(function(){
-    on 1
-}
-</script>

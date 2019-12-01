@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 include_once("../config/setup.php");
 session_start();
-//$email = $_SESSION['email'];
 if(isset($_POST['submit']))
 {
 	$post_id = $_SESSION['login_user'];
@@ -14,7 +13,7 @@ if(isset($_POST['submit']))
 	$user_id = $_POST['image_user'];
 	
     try {
-		$stmt = $conn->prepare("INSERT INTO comments (comment, image_id, user_id, post_id) VALUES  (:comment, :image_id, :user_id, :post_id)");// :image_id, user_id, :post_id)");
+		$stmt = $conn->prepare("INSERT INTO comments (comment, image_id, user_id, post_id) VALUES  (:comment, :image_id, :user_id, :post_id)");
 		$stmt->bindparam(":comment", $comment);
 		$stmt->bindparam(":image_id", $image_id);
 		$stmt->bindparam(":user_id", $user_id);
@@ -22,14 +21,15 @@ if(isset($_POST['submit']))
 		$stmt->execute();
 
 		$user_id = $_POST['image_user'];
-		$tmp = $conn->prepare("SELECT email FROM users WHERE username = :username");
+		$tmp = $conn->prepare("SELECT email, Email_Notification FROM users WHERE username = :username");
 		$tmp->bindParam(':username', $user_id);
         $tmp->execute();
         $result = $tmp->fetch();
-		//$_SESSION['user_id_email'] = $result[0];
 		$user_id_email = $result[0];
+		$Notification = $result[1];
+		print_r($result[1]);
 		
-		if($tmp){
+		if($Notification = 1){
 			$to = $user_id_email;
 			$subject = "New comment";
 			echo $message = "

@@ -26,8 +26,10 @@ try {
          passwd VARCHAR(50) NOT NULL,
          email VARCHAR(50) NOT NULL,
          verified TINYINT(1) NOT NULL,
-         verified_code VARCHAR(50) NOT NULL
+         verified_code VARCHAR(50) NOT NULL,
+         Email_Notification VARCHAR(5)
          )";
+         
     $conn->exec($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS images (

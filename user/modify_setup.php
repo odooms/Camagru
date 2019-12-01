@@ -12,7 +12,14 @@ if(isset($_POST['modify']))
     $userEmail = $_POST['mod_email'];
     $verifiED = 0;
     
-   ;
+    if(isset($_POST['No_Email']) && $_POST['No_Email'] == '1')
+    {
+        $Email_Notification = 1;
+        $_SESSION['Email_Notification'] = $Email_Notification;
+    }else{
+        $Email_Notification = 0;
+        $_SESSION['Email_Notification'] = $Email_Notification;
+    }
     try {
         if (empty($userName) || empty($userEmail) || empty($passWord)) {
             $_SESSION["mod_error"] = "Please enter all fields";
@@ -43,7 +50,7 @@ if(isset($_POST['modify']))
                 
                 $New_passWord = md5($passWord);
                
-                $sql = "UPDATE users SET passwd='$New_passWord', username='$userName',email='$userEmail' Where id='$id'";
+                $sql = "UPDATE users SET passwd='$New_passWord', username='$userName',email='$userEmail' ,Email_Notification='$Email_Notification' Where id='$id'";
                 $tmp = $conn->prepare($sql);
                 $tmp->execute();
                 header("Location: ./login.php");

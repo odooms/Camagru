@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("../config/setup.php");
 
 if(isset($_POST['signup']))
@@ -46,13 +47,15 @@ if(isset($_POST['signup']))
                 $verified_CODE = md5($_POST['uname']);
                 //Insert account into the database
                 $passWord = md5($passWord);
-                $stmt = $conn->prepare("INSERT INTO users (username, passwd, email , verified, verified_code)
-                VALUES (:username, :passwd, :email, :verified, :verified_code)");
+                $Email_Notification = 1;
+                $stmt = $conn->prepare("INSERT INTO users (username, passwd, email , verified, verified_code, Email_Notification)
+                VALUES (:username, :passwd, :email, :verified, :verified_code, :Email_Notification)");
                 $stmt->bindParam(':username', $userName);
                 $stmt->bindParam(':passwd', $passWord);
                 $stmt->bindParam(':email', $userEmail);
                 $stmt->bindParam(':verified', $verifiED);
                 $stmt->bindParam(':verified_code', $verified_CODE);
+                $stmt->bindParam(':Email_Notification', $Email_Notification);
                 $stmt->execute();
                 
                 //send Email
