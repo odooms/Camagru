@@ -42,8 +42,22 @@
  <!-------Main-section---------->
     <article>
     <?php 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     include 'config/setup.php';
     session_start();
+
+    $user_id = `image_user`;
+    $tmp = "SELECT * FROM comments WHERE user_id = $user_id";
+    $com_data = $conn->prepare($tmp);
+    $com_data->execute();
+    $com_list = '<ul class = "images"';
+    $row_data = $tmp->fetch();
+    while($row_data = $tmp->fetch());
+    echo $row_data;
+
     $pageno  = 1;
     if (isset($_GET['pageno'])){
         $pageno = $_GET['pageno'];
@@ -79,9 +93,12 @@
                                 <button type="submit" name="likes">likes</button>
                                 <input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
                                 <input type="hidden" name="image_id" value='.$row['id'].'/>
-                                <div>
-								<p>'.$row['comment'].'</p>
-							</div>
+                                <?php
+                                $com_list = "<div>'
+                                .$row_data['user_id'].'
+                                </div>";
+                                return ;
+                                ?>
 							</form>
 						</div>
         			</li>';
