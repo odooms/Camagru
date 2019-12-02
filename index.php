@@ -39,6 +39,34 @@ include_once('config/setup.php');
 <?php 
     include 'config/setup.php';
     session_start();
+
+    function fetch_comments($image_id, $connection)
+{
+	$tmp = "SELECT * FROM comments WHERE `image_id` = $image_id";
+	$com_data = $connection->prepare($tmp);
+	$com_data->execute();
+	$com_list = '<div class = "comment_text">';
+	while($row_data = $com_data->fetch())
+	{
+		$com_list .= '<div>'.$row_data['post_id'].'</div><div>'.$row_data['comment'].'</div>';
+	}
+	return($com_list. '</div>');
+
+}
+
+function fetch_likes($image_id, $connection)
+{
+	$tmp = "SELECT likes FROM likes WHERE `image_id` = $image_id";
+	$like_data = $connection->prepare($tmp);
+	$like_data->execute();
+	$like_list = '<div>';
+	while($col_data = $like_data->fetch())
+	{
+		$like_list .= '<div>'.$col_data['likes'].'</div>';
+	}
+	return($like_list. '</div>');
+}
+
     $pageno  = 1;
     if (isset($_GET['pageno'])){
         $pageno = $_GET['pageno'];
@@ -60,7 +88,8 @@ include_once('config/setup.php');
     $list = '<ul class = "images">';
     while($row = $res_data->fetch())
     {
-        $list .= '<li class = "image-item"> <img src = '.$row['image_source'].' width = "200px" height = "200px"></li>';
+        $list .= '<li class = "image-item"> <div><p>likes</p>'.fetch_likes($row['id'], $conn).'</div><img src = '.$row['image_source'].' width = "200px" height = "200px">'.fetch_comments($row['id'], $conn).'</li>';
+        
     }
     echo $list;
 ?>

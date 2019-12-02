@@ -42,34 +42,27 @@
         </nav>
  <!-------Main-section---------->
     <article>
+        <div>
+        <script src="js/webcam.js"></script>
+            <div style= "float: left;" id= "vid-controls"><video id = "vid-show" autoplay></video></div>
+            <div style= "margin-left;" id="vid-canvas"></div>
+        </div>
+        
        <table>
-           <tr> 
-               <td> 
-                <div class="column">
-                    <div id="vid-canvas">
-                        <div class= "camera">
-                            <video id="vid-show" autoplay></video>
-                            <div id="camera"></div>
-                            <canvas id="myCanvas" height= "250" width= "250"></canvas>
-                        </div>
-                        <div class="draw_container">
-                            <table><tr><td>
-                            <img src= "images/overlays/img.png" id= "pow" alt= "">
-                            <button id="img" onclick= "img1();">draw image</button>
-                        </td>
-                        <td>
-                            <img src= "images/overlays/omg.png" id= "omg" alt= "">
-                            <button id="img" onclick= "img2();">draw image</button>
-                        </td>
-                        <td>
-                            <img src= "images/overlays/nice.png" id= "nice" alt= "">
-                            <button id="img" onclick= "img3();">draw image</button>
-                        </td></tr></table>
-                                             </div>
-                    </div>
+           <tr>
+               <div>
+                   <canvas id="myCanvas" width= "340" height= "280" style="border:1px solid #2a2a2a;">
+                </canvas>
+                <img src= "images/overlays/img.png" id= "pow" height="200" alt= "">
+                <button onclick= "img1();">draw image</button>
+                <img src= "images/overlays/omg.png" id= "omg" alt= "">
+                <button id="img" onclick= "img2();">draw image</button>
+                <img src= "images/overlays/nice.png" id= "nice" alt= "">
+                <button id="img" onclick= "img3();">draw image</button>
+                <script src= "js/draw_to_image.js" type="text/javascript">
+                </script>
                 </div>
-</td>
-</tr>
+            </tr>
   <tr>
     <td>
         <?php 
@@ -102,7 +95,6 @@
     ?>
     </td>
   </tr>
-  
   <tr>
     <td><ul class ="pagination">
             <li>
@@ -119,6 +111,7 @@
         </ul></td>
   </tr>
 </table>
+</div>
         
         
     </article>
@@ -131,8 +124,5 @@
         </form>
         
 </footer>
-<script src="js/webcam.js"></script> 
-<script src= "user/draw_to_image.js" type="text/javascript"></script> 
-
 </body>
 </html>

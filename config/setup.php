@@ -53,9 +53,9 @@ try {
     
     $sql = "CREATE TABLE IF NOT EXISTS likes (
             id INT(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            `like` INT (12) NOT NULL,
+            likes INT (12) NOT NULL,
             image_id VARCHAR(255) NOT NULL,
-            `user_id` VARCHAR(200) NOT NULL,
+            id_user VARCHAR(200) NOT NULL,
             post_id VARCHAR(50) NOT NULL
             )";
 

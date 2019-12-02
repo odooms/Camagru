@@ -57,6 +57,13 @@ nav article{
     padding: 0;
     margin: 0;
   }
+ 
+  
+  .comment_div{
+      display: table-cell;
+      padding: 10px;
+      border: 1px solid black;
+  }
 .page_number{
     padding: 10px 20px 0px; 
     border-top: dotted 1px #CCC;
@@ -130,7 +137,7 @@ li .image-item
     text-decoration: none;
     display: inline-block;
   }
-.camera {
+/* .camera {
     width: 340px;
     height: 280px;
 }
@@ -149,4 +156,8 @@ canvas {
   display: block;
   visibility: visible;
   border: 1px 1px 1px 1px;
+}*/
+.comment_text{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
 }
