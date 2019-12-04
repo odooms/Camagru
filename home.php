@@ -42,12 +42,8 @@
  <!-------Main-section---------->
 	<article>
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 include 'config/setup.php';
-session_start();
 
 function fetch_comments($image_id, $connection)
 {
@@ -98,25 +94,31 @@ while($row = $res_data->fetch())
 {
 	$list .= '<li class = "image-item">
 		<div>
-		<div>
-		'.$row['image_user'].'
-		</div>
-		<form method = "post" action= "user/likes.php">
-		<input type="submit" name="like" value = Like><div><p>likes'.fetch_likes($row['id'], $conn).'</p></div>
-		</from>
-		<img src = '.$row['image_source'].' width = "200px" height = "200px">
-		<form action="user/comment.php" method="post">
-		<div>
-		<textarea name="comments"  placeholder="add your comments "style="font-family" name="com" ></textarea>
-		</div>
-		<button type="submit" name="submit">submit</button>
+			<div>
+			'.$row['image_user'].'
+			</div>
 		
-		<input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
-		<input type="hidden" name="image_id" value='.$row['id'].'/>
-							</form>'.fetch_comments($row['id'], $conn).'
+			<form method = "post" action= "user/likes.php">
+				<input type="submit" name="like" value = Like>
+				<input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
+				<input type="hidden" name="image_id" value='.$row['id'].'/>
+				<div>
+				<p>likes'.fetch_likes($row['id'], $conn).'</p>
+				</div>
+			</form>
+			<img src = '.$row['image_source'].' width = "200px" height = "200px">
+			<form action="user/comment.php" method="post">
+				<div>
+					<textarea name="comments"  placeholder="add your comments "style="font-family" name="com" ></textarea>
+				</div>
+				<button type="submit" name="submit">submit</button>
+		
+				<input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
+				<input type="hidden" name="image_id" value='.$row['id'].'/>
+			</form>'.fetch_comments($row['id'], $conn).'
 
 						</div>
-					</li>';
+					</li>'; 
 	}
 	echo $list;
 	?>

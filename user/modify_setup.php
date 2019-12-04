@@ -29,8 +29,9 @@ if(isset($_POST['modify']))
             $_SESSION["mod_error"] = "Your username must be at least 5 characters";
             header("Location: ./modify_account.php");
             return ;
-        }elseif (strlen($passWord) < 8){
-            $_SESSION["mod_error"] = "Your Password must be at least 8 characters";
+        }elseif (preg_match("/^.*(?=.{8,})(?=.*[0-9])(?=.*[A-Z]).*$/", $passWord) == 0){
+            $_SESSION["mod_error"] = "Password must be at least 8 characters and must 
+            contain at least no lower case letter, upper case letter and digits";;
             header("Location: ./modify_account.php");
             return ;
         }elseif ($passWord != $Confirm_Password){

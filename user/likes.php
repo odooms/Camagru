@@ -19,6 +19,7 @@ if(isset($_POST['like']))
 	$image_id = $_POST['image_id'];
 	$user_id = $_POST['image_user'];
 	
+	
     try {
 		$stmt = $conn->prepare("INSERT INTO likes (likes, image_id, id_user, post_id) VALUES  (:likes, :image_id, :id_user, :post_id)");
         $stmt->bindparam(":likes", $like);

@@ -29,13 +29,17 @@
                 </tr>
                 <tr>
                     <th>
-                         <!----webcam------>
-    <input id= "vid-take" type= "button" value= "Take Photo" name = "snap_shot">
+                         <!----Take-Photo------>
+                         <input id= "vid-take" type= "button" value= "Take Photo" name = "snap_shot">
                     </th>
                 </tr>
                 <tr>
                     <th>
-                    
+                    <!----save-Photo------>
+                    <form method="post" action ="savingphoto.php">
+                        <input id="webimage" name="data" type="hidden">
+                        <input id="save" type="submit" value="Save Photo" name = "save_Photo">
+                    </form>
                     </th>
                 </tr>
             </table>
@@ -43,22 +47,28 @@
  <!-------Main-section---------->
     <article>
         <div>
-        <script src="js/webcam.js"></script>
-            <div style= "float: left;" id= "vid-controls"><video id = "vid-show" autoplay></video></div>
-            <div style= "margin-left;" id="vid-canvas"></div>
+            <script src="js/webcam.js"></script>
+            <div>
+                <div style= "float: left;" id= "vid-controls"><video id = "vid-show" autoplay></video></div>
+                <div style= "margin-left;" id="vid-canvas"></div>
+            </div>
+            <div>
+                <?php  echo "<img src='images/overlays/img.png' style='width:100px;height:100px;'>"; ?>
+                <input type="radio" name="sticker" value="images/overlays/img.png">
+           
+                <?php  echo "<img src='images/overlays/omg.png' style='width:100px;height:100px;'>"; ?>
+                <input type="radio" name="sticker" value="images/overlays/omg.png">
+                    
+                <?php  echo "<img src='images/overlays/nice.png' style='width:100px;height:100px;'>"; ?>
+                <input type="radio" name="sticker" value="images/overlays/nice.png">
+
+            </div>
         </div>
         
        <table>
            <tr>
                <div>
-                   <canvas id="myCanvas" width= "340" height= "280" style="border:1px solid #2a2a2a;">
-                </canvas>
-                <img src= "images/overlays/img.png" id= "pow" height="200" alt= "">
-                <button onclick= "img1();">draw image</button>
-                <img src= "images/overlays/omg.png" id= "omg" alt= "">
-                <button id="img" onclick= "img2();">draw image</button>
-                <img src= "images/overlays/nice.png" id= "nice" alt= "">
-                <button id="img" onclick= "img3();">draw image</button>
+                
                 <script src= "js/draw_to_image.js" type="text/javascript">
                 </script>
                 </div>
@@ -77,7 +87,7 @@
     $no_of_images_per_page = 5;
     $offset = ($pageno-1) * $no_of_images_per_page;
 
-    $total_images_sql = "SELECT * FROM images";
+    $total_images_sql = "SELECT * FROM images ";
     $result = $conn->prepare($total_images_sql);
     $result->execute();
     $total_rows = $result->rowCount();
@@ -89,10 +99,18 @@
     $list = '<ul class = "images">';
     while($row = $res_data->fetch())
     {
-        $list .= '<li class = "image-item"> <img src = '.$row['image_source'].' width = "100px" height = "100px"></li>';
-    }
-    echo $list;
-    ?>
+    $list .= '<li class = "image-item">' ?>
+    <div>
+    <img src = <?php echo $row["image_source"] ?> width = "100px" height = "100px">
+        <form method="post" action="user/delete.php">
+            <input name="image_source" value=<?php echo $row["image_source"] ?> type="hidden" />
+            <button type="hidden" name="delete">Delete</button>
+        </form>
+    </div>
+<?php '</li>';
+}
+echo $list;
+?>
     </td>
   </tr>
   <tr>
