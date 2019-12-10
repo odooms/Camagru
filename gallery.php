@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset= "utf-8">
-        <meta name = "viewport" content = "width=device-width, intial-scale=1">
+        <meta name ="viewport" content="width=device-width, intial-scale=1">
     <link rel="stylesheet" type="text/css" href="user/style/home.css">
     </head>
     <body>
@@ -29,28 +29,38 @@
                 </tr>
                 <tr>
                     <th>
-                         <!----Take-Photo------>
-                         <input id= "vid-take" type= "button" value= "Take Photo" name = "snap_shot">
+                         <!----webcam------>
+    <input id= "vid-take" type= "button" value= "Take Photo" name = "snap_shot">
                     </th>
                 </tr>
                 <tr>
                     <th>
-                    <!----save-Photo------>
-                    <form method="post" action ="savingphoto.php">
-                        <input id="webimage" name="data" type="hidden">
-                        <input id="save" type="submit" value="Save Photo" name = "save_Photo">
+                    <form action="user/saveimage.php" method= "post">
+                        <input type= "button" value= "upload Photo" name = "save">
                     </form>
+                    </th>
+                </tr>
+                    <th>
+                        
                     </th>
                 </tr>
             </table>
         </nav>
+        <form action="user/upload.php" method= "post" name = "form "enctype= "multipart/form-data">
+                            <input type= "file" name = "FileToUpload" id = "FileToUpload">
+                            <br>
+                            <button id = "Image"type= "submit" value = "Upload Image" name = "UploadImage">UPLOAD</button>
+                        </form>
  <!-------Main-section---------->
     <article>
         <div>
             <script src="js/webcam.js"></script>
             <div>
-                <div style= "float: left;" id= "vid-controls"><video id = "vid-show" autoplay></video></div>
-                <div style= "margin-left;" id="vid-canvas"></div>
+                <div style= "float: left;" id= "vid-controls">
+                <video id = "vid-show" autoplay></video>
+                </div>
+                <div style= "margin-left;" id="vid-canvas">
+                </div>
             </div>
             <div>
                 <?php  echo "<img src='images/overlays/img.png' style='width:100px;height:100px;'>"; ?>
@@ -61,18 +71,9 @@
                     
                 <?php  echo "<img src='images/overlays/nice.png' style='width:100px;height:100px;'>"; ?>
                 <input type="radio" name="sticker" value="images/overlays/nice.png">
-
             </div>
         </div>
-        
        <table>
-           <tr>
-               <div>
-                
-                <script src= "js/draw_to_image.js" type="text/javascript">
-                </script>
-                </div>
-            </tr>
   <tr>
     <td>
         <?php 
@@ -129,18 +130,12 @@ echo $list;
         </ul></td>
   </tr>
 </table>
-</div>
-        
-        
+</div>  
     </article>
 </section>
 <!-------footer---------->
 <footer>
-        <form action="user/upload.php" method= "post" name = "form "enctype= "multipart/form-data">
-    <input type= "file" name = "FileToUpload" id = "FileToUpload">
-        <button id = "Image"type= "submit" value = "Upload Image" name = "UploadImage">UPLOAD</button>
-        </form>
-        
+  
 </footer>
 </body>
 </html>

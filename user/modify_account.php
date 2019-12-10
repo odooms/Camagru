@@ -28,7 +28,7 @@ session_start();
                     <input type = "checkbox" name = "No_Email" value= "1">
                     <span class ="slider"></span>
                     </label>
-                    <button type="submit" name="modify">update account</button>
+                    <button type="submit" name="modify"form="test" formaction="javascript:alert(1)">update account</button>
                 </form>
             </div>
         </body>

@@ -2,6 +2,7 @@
 session_start();
 include_once("../config/setup.php");
 $emailx = $_POST['email'];
+
  if(isset($_POST['email'])){
      $email = $_POST['email'];
      if(!filter_var($email, FILTER_VARIDATE_EMAIL)){
@@ -37,6 +38,7 @@ $emailx = $_POST['email'];
            $headers = "MIME-Version: 1.0" . "\r\n";
            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
            mail($to, $subject, $message, $headers);
+           header("Location: ./forgot_password.php");
         }
     }catch(Exception $error){
      die($error->getMessage());

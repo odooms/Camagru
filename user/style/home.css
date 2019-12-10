@@ -102,33 +102,43 @@ li .image-item
  }
  #vid-take {
     background-color: #4CAF50;
-    border: none;
+    /* border: none; */
     color: white;
-    padding: 15px 32px;
+    /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    /* font-size: 16px; */
+  }
+  #save_photo{
+    background-color: #4CAF50;
+    /* border: none; */
+    color: white;
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /* font-size: 16px; */
   }
   #FileToUpload{
     background-color: rgb(161, 199, 23);
-    border: none;
+    /* border: none; */
     color: white;
-    padding: 15px 32px;
+    /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    /* font-size: 16px; */
   }
   #Image{
     background-color: rgb(48, 34, 173);
-    border: none;
+    /* border: none; */
     color: white;
-    padding: 15px 32px;
+    /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    /* font-size: 16px; */
   }
   #img{
     background-color: rgb(43, 205, 226);
@@ -137,31 +147,11 @@ li .image-item
     text-decoration: none;
     display: inline-block;
   }
-/* .camera {
-    width: 340px;
-    height: 280px;
-}
-#camera {
-    position: absolute;
-    margin-top: -300px;
-}
-video {
-    width: 100%;
-    height: 100%;
-    z-index: 9;
-}
-canvas {
-    width: 100%;
-    height: 100%;
-  display: block;
-  visibility: visible;
-  border: 1px 1px 1px 1px;
-}*/
+
 .comment_text{
     font-family: "Times New Roman", Times, serif;
     font-size: 25px;
 }
-
 
 .img-display {
     margin-left: 10px;
@@ -193,4 +183,19 @@ canvas {
   
 .gallery-nav .active {
     background-color: #4CAF50;
+}
+.booth{
+    width: 400px;
+    background-color: rgb(204, 204, 204);
+    border:10px solid rgb(221, 221, 221);
+    margin: 0 auto;
+}
+.booth-capture-button{
+    display: block;
+    margin:10px 0;
+    padding:10px 20px;
+    background-color: cornflowerblue;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
 }
