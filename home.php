@@ -109,9 +109,9 @@ while($row = $res_data->fetch())
 			<img src = '.$row['image_source'].' width = "200px" height = "200px">
 			<form action="user/comment.php" method="post" >
 				<div>
-					<textarea name="comments"  placeholder="add your comments "style="font-family" name="com" ></textarea>
+					<textarea name="comments" placeholder="add your comments" style="font-family"></textarea>
 				</div>
-				<button type="submit" name="submit"form="test" formaction="javascript:alert(1)">submit</button>
+				<button type="submit" name="submit">submit</button>
 		
 				<input type="hidden" name="image_user" value="'.$row['image_user'].'"/>
 				<input type="hidden" name="image_id" value='.$row['id'].'/>

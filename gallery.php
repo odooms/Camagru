@@ -79,6 +79,7 @@
         <?php 
     include 'config/setup.php';
     session_start();
+    
     $pageno  = 1;
     if (isset($_GET['pageno'])){
         $pageno = $_GET['pageno'];
@@ -88,7 +89,7 @@
     $no_of_images_per_page = 5;
     $offset = ($pageno-1) * $no_of_images_per_page;
 
-    $total_images_sql = "SELECT * FROM images ";
+    $total_images_sql = "SELECT * FROM images";
     $result = $conn->prepare($total_images_sql);
     $result->execute();
     $total_rows = $result->rowCount();

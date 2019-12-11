@@ -11,12 +11,12 @@ if(isset($_POST['like']))
         $like = 0;
         $_SESSION['like'] = $like;
     }
-	$post_id = $_SESSION['login_user'];
+	$post_id = $_SESSION['login_user'] = (int)1;
 	$image_id = $_POST['image_id'];
 	$user_id = $_POST['image_user'];
 	
-	
     try {
+		
 		$stmt = $conn->prepare("INSERT INTO likes (likes, image_id, id_user, post_id) VALUES  (:likes, :image_id, :id_user, :post_id)");
         $stmt->bindparam(":likes", $like);
 		$stmt->bindparam(":image_id", $image_id);

@@ -8,7 +8,7 @@ session_start();
 if(isset($_POST['submit']))
 {
 	$post_id = $_SESSION['login_user'];
-	$comment = $_POST["comments"];
+	$comment = htmlspecialchars($_POST["comments"]);
 	$image_id = $_POST['image_id'];
 	$user_id = $_POST['image_user'];
 	

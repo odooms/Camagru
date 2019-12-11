@@ -7,11 +7,13 @@ $folder = "user/uploads/";*/
 
 if (isset($_POST['delete'])) {
 
+
+    $user = $_SESSION['login_user'];
     try {
         $id = $_POST['image_source'];
         echo $_POST['image_source'];
         // sql to delete a record
-        $sql=$conn->prepare("DELETE FROM images WHERE image_source=:image_source");
+        $sql=$conn->prepare("DELETE FROM images WHERE image_source=:image_source AND image_user = '$user'");
         $sql->bindParam(":image_source",$id);
         $sql->execute();
         header("Location: ../gallery.php");

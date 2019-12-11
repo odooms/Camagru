@@ -41,6 +41,6 @@ window.addEventListener("load", function(){
 			});
 		})
 		.catch(function(err) {
-			document.getElementById("vid-controls").innerHTML = "Please enable access and attach a camera";
+			// document.getElementById("vid-controls").innerHTML = "Please enable access and attach a camera";
 		});
 });
