@@ -1,4 +1,7 @@
 <?php
+session_start();
+include_once("../config/setup.php");
+
 if (isset($_POST['image']))
 {
     $image = $_POST["image"];
@@ -7,8 +10,9 @@ if (isset($_POST['image']))
     $image = str_replace(" ", "+", $image);
     
     $image = base64_decode($image);
-    file_put_contents("../uploads/photo.jpeg",$image);
+    $photo = time();
+    file_put_contents("../uploads/$photo.jpeg",$image);
 
-    echo "DONE";
+    $_SESSION['imagePath'] =  "uploads/$photo.jpeg";
 }
 ?>

@@ -35,13 +35,13 @@
                 </tr>
                 <tr>
                     <th>
-                    <form action="user/saveimage.php" method= "post">
-                        <input type= "button" value= "upload Photo" name = "save">
-                    </form>
+                    
                     </th>
                 </tr>
                     <th>
-                        
+                    <form method="post" action="user/saveImage.php">
+                        <button type= "submit" name = "savephoto">Save photo</button>
+                    </form>
                     </th>
                 </tr>
             </table>
@@ -135,7 +135,7 @@ echo $list;
 </section>
 <!-------footer---------->
 <footer>
-  
+
 </footer>
 </body>
 </html>

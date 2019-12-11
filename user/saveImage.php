@@ -1,30 +1,30 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
+include_once("../config/setup.php");
+echo "hello";
 
+if(isset($_POST["savephoto"]))
+{
+    $user = $_SESSION['login_user'];
+    $date = time();
+    $imagePath = $_SESSION['imagePath'];
 
-if(isset($_POST["save"])){
-   $user = $_SESSION['login_user'];
-   $date = time();
-	//$random = rand();
-    //$folder = "uploads/";
-   // $image = $_FILES["FileToUpload"]["name"];
-	//$path = $folder .$random. $image;
-	//echo $path;
-   // $target_file = $folder.basename($_FILES["FileToUpload"]["name"]);
-    //$ImageType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-    $path = "NEED PATH";
-    //if (move_uploaded_file($_FILES['FileToUpload']['tmp_name'], "../".$path)) {
-    $stmt = $conn->prepare("INSERT INTO IMAGES (image_source, image_date, image_user) 
-    VALUES ('$path', '$date', '$user')");
-    $stmt->execute();
-    //header("Location: ../gallery.php");
-  // } else {
- //       echo "failed to upload";
- //   }
+    try{
+        $stmt = $conn->prepare("INSERT INTO images (image_source, image_date, image_user)
+        VALUES (:image_source, :image_date, :image_user)");
+        $stmt->bindParam(':image_source', $imagePath);
+        $stmt->bindParam(':image_date', $date);
+        $stmt->bindParam(':image_user', $user);
+        $stmt->execute();
+        header("Location: ../gallery.php");
+    }
+    catch(PDOException $e)
+    {
+        echo "Error: ". $e->getMessage();
+    }
 }
 ?>
